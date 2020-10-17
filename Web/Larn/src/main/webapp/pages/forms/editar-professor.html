@@ -1,0 +1,67 @@
+          <!-- FORM Professor Perfil-->
+          <form method="post" action="#">
+            <!-- NOME COMPLETO -->
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">NOME: </label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputNameUser" name="nome" maxlength="50" placeholder="Nome"
+                  autofocus required>
+              </div>
+            </div>
+
+            <!-- EMAIL DE ACESSO -->
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">EMAIL: </label>
+              <div class="col-lg-10">
+                <input type="email" class="form-control" name="email" id="inputEmailUser" maxlength="50"
+                  placeholder="Email para acesso ao sistema" required>
+              </div>
+            </div>
+
+            <!-- CPF CLIENTE -->
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">CPF: </label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" name="cpf" id="inputCPFCli" maxlength="11" placeholder="CPF"
+                  required>
+              </div>
+            </div>
+
+            <!-- Bio -->
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Bio: </label>
+              <div class="col-lg-10">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+              </div>
+            </div>
+
+            <!-- Lates -->
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">ID Lates: </label>
+              <div class="col-lg-10">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">http://lattes.cnpq.br/</span>
+                  </div>
+                  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                </div>
+              </div>
+            </div>
+
+            <!-- SENHA -->
+            <div class="form-group row pb-5">
+              <label class="col-sm-2 col-form-label">SENHA: </label>
+              <div class="col-lg-10">
+                <input type="password" class="form-control" name="senha" id="inputPassword" maxlength="10"
+                  placeholder="Senha" required>
+              </div>
+            </div>
+
+
+            <!-- Botao limpar-->
+            <button class="btn btn-sm btnSubmit" type="reset" value="Reset">Limpar</button>
+            <hr>
+            <!-- Botao Salvar-->
+            <button class="btn btn-sm btnSubmit" type="submit">Salvar</button>
+          </form>
+          <!-- Fim form-->

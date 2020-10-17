@@ -1,0 +1,47 @@
+<!-- Pefil Aluno-->
+<form method="post" action="#">
+
+    <!-- NOME COMPLETO -->
+    <div class="form-group row active-purple">
+      <label class="col-sm-2 col-form-label">NOME: </label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputNameUser" name="nome" maxlength="50" placeholder="Nome"
+          autofocus required>
+      </div>
+    </div>
+
+    <!-- EMAIL DE ACESSO -->
+    <div class="form-group row active-purple">
+      <label class="col-sm-2 col-form-label">EMAIL: </label>
+      <div class="col-lg-10">
+        <input type="email" class="form-control" name="email" id="inputEmailUser" maxlength="50"
+          placeholder="Email para acesso ao sistema" required>
+      </div>
+    </div>
+
+    <!-- CPF CLIENTE -->
+    <div class="form-group row active-purple">
+      <label class="col-sm-2 col-form-label">CPF: </label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" name="cpf" id="inputCPFCli" maxlength="11" placeholder="CPF"
+          required>
+      </div>
+    </div>
+
+    <!-- SENHA -->
+    <div class="form-group row active-purple pb-5">
+      <label class="col-sm-2 col-form-label">SENHA: </label>
+      <div class="col-lg-10">
+        <input type="password" class="form-control" name="senha" id="inputPassword" maxlength="10"
+          placeholder="Senha" required>
+      </div>
+    </div>
+
+    <!-- Botao limpar-->
+    <button class="btn btn-sm btnSubmit" type="reset" value="Reset">Limpar</button>
+    <hr>
+    <!-- Botao Salvar-->
+    <button class="btn btn-sm btnSubmit" type="submit">Salvar</button>
+
+  </form>
+  <!-- Fim form-->

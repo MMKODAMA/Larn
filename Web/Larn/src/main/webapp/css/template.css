@@ -1,0 +1,58 @@
+body{
+    background-color: #F0AE37;
+}
+
+nav{
+    border-bottom: #A020F0 solid 1px;
+    background-color: #fffafa !important;
+}
+
+hr{
+    background-color: #A020F0;
+}
+
+nav button svg{
+    color: #000;
+}
+
+.nav-item a{
+    color: #000 !important;
+}
+
+.nav-item a:hover{
+    color:#A020F0 !important;
+}
+
+ .btn-link:hover{
+    border: solid 2px #A020F0 !important;
+}
+
+.active-purple input[type=text],input[type=password],input[type=email],textarea{
+    border: 2px solid#ce93d8;
+    box-shadow: 0 1px 0 0 #ce93d8;
+  }
+
+.active-purple input[type=text]:focus:not([readonly]),
+input[type=password]:focus:not([readonly]),
+input[type=email]:focus:not([readonly]),
+textarea:focus:not([readonly]) {
+    border: 2px solid#A020F0;
+    box-shadow: 0 1px 0 0 #A020F0;
+  }
+
+.btn-menu{
+    border: #ce93d8 solid 2px !important;
+}
+
+.btn-menu:hover{
+    background-color: #B43BFF !important;
+    border: solid 2px #A020F0 !important;
+    color: #fff !important;
+    font-style: bold !important;
+}
+
+.border{
+    border-color: #A020F0 !important;
+    background: #fffafa;
+}
+

@@ -1,0 +1,31 @@
+.form-content
+{
+    padding: 5%;
+    border: 1px solid #ced4da;
+    margin-bottom: 2%;
+    border-radius:1.5rem;
+}
+.form-control{
+    border-radius:1.5rem;
+}
+
+.btnSubmit
+{
+    border:none;
+    border-radius:1.5rem;
+    padding: 1%;
+    width: 100%;
+    background: #fff;
+    color: #000;
+    border: 1px ;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: #ce93d8 solid 2px !important;
+}
+
+.btnSubmit:hover{
+    background-color: #B43BFF !important;
+    border: solid 2px #B43BFF !important;
+    color: #fff !important;
+    font-style: bold !important;
+}

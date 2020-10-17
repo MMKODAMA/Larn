@@ -1,0 +1,187 @@
+div.flex-dashboard {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+
+#sidebar {
+    display: block;
+    height: 100%;
+    width: 250px;
+    background-color:  #fff;
+    overflow-x: hidden;
+    border: #BCBCB8 1px solid;
+}
+
+
+/* Sidebar css */
+
+sidebar .sidebar-tittle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-bottom: 1px solid #BCBCB8;
+}
+
+sidebar .sidebar-tittle img {
+    height: 70px;
+    width: 210px;
+}
+
+/* Header */
+
+.flex-dashboard header {
+    display: flex;
+    flex-direction: column;
+    align-items: initial;
+    justify-content: initial;
+    height: 40px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #BCBCB8;
+}
+
+.menu-Cima{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 90px;
+    background-color: #ffffff;
+}
+
+.menu-Cima h2{
+
+    border-top: 0px !important;
+
+}
+
+.flex-dashboard header h2 {
+    font-size: 24px;
+    padding: 7px 20px;
+    border-top: 1px solid #BCBCB8;
+    color: #000;
+}
+
+.flex-dashboard header svg {
+    font-size: 24px;
+    color: #000;
+}
+
+/* Menu css */
+
+
+/* CSS LISTAS e LINKS DA LISTA*/
+
+div.menu ul {
+    list-style-type: none;
+}
+
+div.menu ul li {
+    padding: 12px 20px;
+    width: 100%;
+}
+
+div.menu ul li a {
+    color: #000;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+div.menu ul li a:hover {
+    color: #B43BFF;
+}
+
+
+/*  Aparecer lista dentro da lista */
+
+div.menu ul ul {
+    display: none;
+    background-color: transparent;
+}
+
+div.menu ul li.tap ul {
+    width: 300px;
+    display: block;
+}
+
+/* FOTO USUARIO CSS*/
+
+div.menu .foto-user {
+    padding: 10px 0px;
+    width: 100%;
+    text-align: center;
+    color: #BCBCB8;
+}
+
+div.menu .foto-user h4 {
+    color: #000;
+    font-size: 15px;
+    margin: 0;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div.menu .foto-user p {
+    font-size: 12px;
+    margin: 0;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div.menu .foto-user img {
+    width: 96px;
+    padding: 5px 0;
+}
+
+div.menu ul ul svg {
+    font-size: 8px;
+}
+
+
+/* Main css */
+
+main {
+    display: block;
+    height: 100%;
+    background-color: #ffffff;
+    width: 100%;
+}
+
+main .main-content {
+    padding: 20px;
+    width: 100%;
+    height: calc(100% - 50px);
+    overflow-y: auto;
+}
+
+/* Overflow bar css width */
+
+.main-content::-webkit-scrollbar {
+    width: 8px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+
+/* Overflow bar css Track */
+
+.main-content::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+
+/* Overflow bar css Handle */
+
+.main-content::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F0AE37;
+    border-radius: 5px;
+}
