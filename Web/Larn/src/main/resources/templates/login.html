@@ -2,28 +2,77 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<title>WebEncyclop - Login</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<title>Larn - Venha se conectar com a gente</title>
+	<!-- Bootstrap -->
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}">
+	<!-- <link rel="stylesheet" th:href="@{/bootstrap-4/css/bootstrap.min.css}">  EXEMPLO LOCAL-->
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+	<!-- Font Awesome -->
+	<link rel="stylesheet" th:href="@{/webjars/font-awesome/5.13.0-web/css/all.min.css}">
+	<!-- CSS -->
+	<link rel="stylesheet" th:href="@{/css/all.css}">
+	<link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
+ 	<!--Lib Owl Carousel-->
+  	<link rel="stylesheet" th:href="@{/libs/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css}">
+  	<link rel="stylesheet" th:href="@{/libs/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css}">
 </head>
 
-<body style="background-color:#ededed;">
-	<div style="background-color:#337ab7;height:50px;"></div>
-	<div class="container-fluid">
-		<div class="row col-lg-4 col-lg-offset-4" style="margin-top: 80px;background-color:#fff;padding:20px;border:solid 1px #ddd;">
-			<!-- <img th:src="@{/images/login.jpg}" class="img-responsive center-block" width="300" height="300" alt="Logo" /> -->
-			<form th:action="@{/login}" method="POST" class="form-signin">
-				<h3 class="form-signin-heading" th:text="Login"></h3>
-				<br /> <input type="text" id="email" name="email" th:placeholder="Email" class="form-control" /> <br /> <input type="password" th:placeholder="Password" id="password" name="password" class="form-control" /> <br />
+<body>
 
-				<div align="center" th:if="${param.error}">
-					<p style="font-size: 20; color: #FF1C19;">Email or Password is invalid.</p>
-				</div>
-				<button class="btn btn-lg btn-primary" name="Submit" value="Login" type="Submit" th:text="Login" style="margin-right:10px;"></button>
-				<a href="/recover-password">Forgot password?</a>
-			</form>
-		</div>
-	</div>
+	HEADER
+	<!-- section login-->
+  <section>
+    <div class="container">
+
+      <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+
+          <div class="card card-signin my-5 border">
+
+            <div class="text-center pt-5">
+              <h1>Larn</h1>
+            </div>
+
+
+            <div class="card-body" id="form-login">
+              <hr>
+              <!-- form -->
+              <form class="form-signin" method="POST" th:action="@{/login}">
+
+                <div class="form-label-group">
+                  <label for="inputEmail">Email:</label>
+                  <input type="email" id="inputEmail" name="inputEmail" value="" class="form-control"
+                    placeholder="Email" autofocus>
+                </div>
+
+                <div class="form-label-group pb-4">
+                  <label for="inputPassword">Senha:</label>
+                  <input type="password" id="inputPassword" name="inputPassword" class="form-control input_pass"
+                    placeholder="Senha">
+                </div>
+
+                <hr>
+                
+                <button class="btn btn-lg btnSubmit" type="submit">Acessar</button>
+              </form>
+              <!-- fim form-->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- fim section-->
+	FOOTER
+	
+	<script th:src="@{/jquery/jquery.min.js}"></script>
+	<script th:src="@{/jquery/jquery.js}"></script>
+	<script th:src="@{/webjars/font-awesome/5.13.0-web/js/all.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/4.5.2/js/bootstrap.min.js}"></script>
+	<script th:src="@{/libs/OwlCarousel2-2.3.4/dist/owl.carousel.min.js}"></script>
+	<script th:src="@{/js/main.js}"></script>
 </body>
 </html>
