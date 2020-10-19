@@ -35,4 +35,6 @@ build/
 
 ### Outros ###
 **/.DS_Store
-/.metadata/**
+Web/Larn/.metadata/**
+Web/.metadata/**
+
