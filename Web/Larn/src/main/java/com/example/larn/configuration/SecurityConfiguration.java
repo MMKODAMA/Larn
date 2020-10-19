@@ -41,6 +41,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.antMatchers("/").permitAll()
 			.antMatchers("/login").permitAll()
 			.antMatchers("/register/**").permitAll()
+			.antMatchers("/resources/**").permitAll()
+			.antMatchers("/static/**").permitAll()
+			.antMatchers("/webjars/**").permitAll()
 			.antMatchers("/studenty/**").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "STUDENTY_USER")
 			.antMatchers("/teacher/**").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "TEACHER_USER")
 			.anyRequest().authenticated()
@@ -61,6 +64,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/resources/**", "/static/**", "/css/**", "/js/**","/images/**");
+		web.ignoring().antMatchers("/resources/**", "/static/**", "/css/**", "/js/**","/images/**", "/webjars/**",
+				"/font/**", "/libs/**","/jquery/**");
 	}
 }

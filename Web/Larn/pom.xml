@@ -74,6 +74,21 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+		    <groupId>org.webjars</groupId>
+		    <artifactId>bootstrap</artifactId>
+		    <version>4.5.3</version>
+		</dependency>
+		<dependency>
+	        <groupId>org.webjars</groupId>
+	        <artifactId>webjars-locator</artifactId>
+	        <version>0.30</version>
+	    </dependency>
+	    <dependency>
+		    <groupId>org.webjars</groupId>
+		    <artifactId>font-awesome</artifactId>
+		    <version>5.13.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
