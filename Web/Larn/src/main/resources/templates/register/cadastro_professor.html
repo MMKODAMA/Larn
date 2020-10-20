@@ -5,7 +5,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
-<title>Larn - Cadastro de Aluno</title>
+<title>Larn - Cadastro de Professor</title>
 <!-- Bootstrap -->
 <link rel="stylesheet"
 	th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}">
@@ -21,21 +21,22 @@
 
 
 <body>
-	<div th:replace="fragments/navbar :: navbar-teamplate"></div>
 
-	<!-- Section cadastro aluno-->
-	<section class="pt-5">
-		<div class="container register-form">
+  <div th:replace="fragments/navbar :: navbar-teamplate"></div>
 
+  <!-- Section cadastro professor-->
+  <section class="pt-5">
 
-			<div class="active-purple">
-				<div class="form-content border">
-					<div class="text-center">
-						<h1>Cadastre-se e comece a aprender</h1>
-					</div>
+    <div class="container register-form ">
 
-					<!-- Form-->
-					<form th:action="@{/register/student}" th:object="${user}"
+      <div class="form">
+        <div class="form-content border">
+          <div class="text-center">
+            <h1>Cadastre-se e comece a ensinar</h1>
+          </div>
+
+          <!-- Form-->
+					<form th:action="@{/register/teacher}" th:object="${user}"
 						action="#" method="POST">
 						<div class="row pt-5">
 
@@ -100,25 +101,27 @@
 					</form>
 					<!--Fim form-->
 
-				</div>
-			</div>
-	</section>
-	<!-- Fim section-->
+        </div>
+      </div>
 
-	<!-- Footer-->
-	<footer class="text-center pt-5">
-		<div class="container">
-			<p class="text-black">DIREITOS RESERVADOS LARN 2020</p>
-		</div>
-	</footer>
-	<!-- Fim Footer-->
+  </section>
+  <!-- Fim Section-->
 
-	<script th:src="@{/jquery/jquery.min.js}"></script>
-	<script th:src="@{/jquery/jquery.js}"></script>
-	<script th:src="@{/webjars/font-awesome/5.13.0-web/js/all.min.js}"></script>
-	<script th:src="@{/webjars/bootstrap/4.5.2/js/bootstrap.min.js}"></script>
-	<script th:src="@{/libs/OwlCarousel2-2.3.4/dist/owl.carousel.min.js}"></script>
-	<script th:src="@{/js/main.js}"></script>
+  <!-- Footer -->
+  <footer class="text-center pt-5">
+    <div class="container">
+      <p class="text-black">DIREITOS RESERVADOS LARN 2020</p>
+    </div>
+  </footer>
+  <!-- Fim Footer-->
+
+  <script src="/jquery/jquery.min.js "></script>
+  <script src="/jquery/jquery.js "></script>
+  <script src="/fontawesome-free-5.13.0-web/js/all.min.js "></script>
+  <script src="/bootstrap/js/bootstrap.bundle.min.js "></script>
+  <script src="/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+  <script src="/js/main.js"></script>
+
 </body>
 
 </html>

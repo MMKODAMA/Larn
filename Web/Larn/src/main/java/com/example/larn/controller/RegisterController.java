@@ -26,9 +26,9 @@ public class RegisterController {
 	@RequestMapping(value = "/register/teacher", method = RequestMethod.GET)
 	public ModelAndView registerTeacherPage() {
 		ModelAndView mv = new ModelAndView();
-		User user = new Student();
+		User user = new Teacher();
 		mv.addObject("user", user);
-		mv.setViewName("register");
+		mv.setViewName("register/cadastro_professor");
 		return mv;
 	}
 	
@@ -47,7 +47,7 @@ public class RegisterController {
 		}
 		
 		mv.addObject("user", user);
-		mv.setViewName("register");
+		mv.setViewName("register/cadastro_professor");
 		
 		return mv;
 	}
