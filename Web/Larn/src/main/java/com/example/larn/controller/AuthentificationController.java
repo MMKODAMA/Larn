@@ -59,7 +59,7 @@ public class AuthentificationController {
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
 	public ModelAndView user() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("user");
+		mv.setViewName("/");
 		return mv;
 	}
 	
