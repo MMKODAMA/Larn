@@ -9,18 +9,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Length;
 
-@Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@MappedSuperclass
 public abstract class User implements Serializable {
 
 	@Id
@@ -34,6 +33,11 @@ public abstract class User implements Serializable {
 	
 	@Column(name = "last_name")
 	private String lastName;
+	
+	@Column(name = "user_cpf", length = 11)
+	@Size(min = 11, max = 11, message = "CPF invalido")
+	@NotEmpty(message = "CPF é um campo obrigatorio!")
+	private String cpf;
 	
 	@NotEmpty(message = "E-mail é um campo obrigatorio!")
 	@Email(message = "E-mail invalido")
@@ -103,6 +107,14 @@ public abstract class User implements Serializable {
 
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 	
 	
