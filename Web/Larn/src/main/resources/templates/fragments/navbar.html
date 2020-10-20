@@ -3,7 +3,7 @@
 	<!-- Navbar-->
 	<nav class="navbar navbar-expand-lg static-top">
 		<!-- LOGO -->
-		<a class="navbar-brand mr-5" href="#">Larn</a>
+		<a class="navbar-brand mr-5" href="/">Larn</a>
 		<!--Botão hamburger-->
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarCollapse" aria-controls="navbarCollapse"
@@ -16,16 +16,16 @@
 			<ul class="navbar-nav mr-auto">
 
 				<li class="nav-item mr-5"><a class="nav-link btn-link"
-					href="cadastro_professor.html">Ensine na Larn</a></li>
+					th:href="@{/register/teacher}">Ensine na Larn</a></li>
 
 				<li class="nav-item mr-5 mr-5"><a class="nav-link btn-link"
-					href="cadastro_aluno.html">Seja Aluno</a></li>
+					th:href="@{/register/student}">Seja Aluno</a></li>
 
 				<li class="nav-item mr-5"><a class="nav-link btn-link"
 					href="pesquisa_aula.html">Procure uma aula</a></li>
 
 				<li class="nav-item mr-5"><a class="nav-link btn-link"
-					href="login.html">Login</a></li>
+					th:href="@{/login}">Login</a></li>
 			</ul>
 			<!-- Fim Lista-->
 		</div>
