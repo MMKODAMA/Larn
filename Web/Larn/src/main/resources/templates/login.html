@@ -40,13 +40,16 @@
               <hr>
               <!-- form -->
               <form class="form-signin" method="POST" th:action="@{/login}">
-
+              
+				<div class="alert alert-danger" align="center" th:if="${param.error}"> 
+					Email ou senha invalidos.
+				</div>
                 <div class="form-label-group">
                   <label for="inputEmail">Email:</label>
                   <input type="email" id="inputEmail" name="inputEmail" value="" class="form-control"
                     placeholder="Email" autofocus>
                 </div>
-
+				
                 <div class="form-label-group pb-4">
                   <label for="inputPassword">Senha:</label>
                   <input type="password" id="inputPassword" name="inputPassword" class="form-control input_pass"
