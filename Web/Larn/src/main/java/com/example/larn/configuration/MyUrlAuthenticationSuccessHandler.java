@@ -10,19 +10,32 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+
+import com.example.larn.model.Student;
+import com.example.larn.model.Teacher;
+import com.example.larn.model.User;
+import com.example.larn.repository.StudentRepository;
+import com.example.larn.repository.TeacherRepository;
 
 public class MyUrlAuthenticationSuccessHandler implements AuthenticationSuccessHandler{
 	
 	protected Log logger = LogFactory.getLog(this.getClass());
 
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
-
+    
+    @Autowired
+    private StudentRepository studentyRep;
+    
+    @Autowired
+    private TeacherRepository teacherRep;
 	
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
@@ -41,7 +54,33 @@ public class MyUrlAuthenticationSuccessHandler implements AuthenticationSuccessH
               + targetUrl);
             return;
         }
-
+		
+		System.out.println("GET NAME: " + SecurityContextHolder.getContext().getAuthentication().getName());
+		
+		User user = null;
+		
+		Collection<? extends GrantedAuthority> authorities
+        = authentication.getAuthorities();
+		for (GrantedAuthority grantedAuthority : authorities) {
+			switch (grantedAuthority.getAuthority()) {
+			case "STUDENT_USER":
+				user = studentyRep.findByEmail(authentication.getName());
+				break;
+			case "TEACHER_USER":
+				user = teacherRep.findByEmail(authentication.getName());
+				break;
+			default:
+				user = teacherRep.findByEmail(authentication.getName());
+				break;
+			}
+			if(user != null) {
+				setSessionUserAttributes(user, request.getSession());
+				;
+			}
+		}
+		
+		
+		
         redirectStrategy.sendRedirect(request, response, targetUrl);
 	}
 	
@@ -76,11 +115,10 @@ public class MyUrlAuthenticationSuccessHandler implements AuthenticationSuccessH
 			return "/";
 		}
 		if(teachear) {
-			return "/teacher";
+			return "/teacher/home";
 		} else {
-			return "/student";
+			return "/student/home";
 		}
-		
 		
 	}
 	
@@ -95,7 +133,15 @@ public class MyUrlAuthenticationSuccessHandler implements AuthenticationSuccessH
     public void setRedirectStrategy(RedirectStrategy redirectStrategy) {
         this.redirectStrategy = redirectStrategy;
     }
+    
     protected RedirectStrategy getRedirectStrategy() {
         return redirectStrategy;
     }
+    
+    private void setSessionUserAttributes(User user, HttpSession session) {
+    	session.setAttribute("id", user.getId());
+    	session.setAttribute("role", user.getRoles());
+    	session.setAttribute("user", user);
+    }
+     
 }

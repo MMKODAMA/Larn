@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Teste</h1>
+	<span th:text="${#authentication.getPrincipal().getUsername()}"></span>
+	<p> </p>
+	<span th:text="${#authentication.getPrincipal()}"></span>
+	<p> </p>
+	<span th:text="${session.user.class.name}"></span>
+</body>
+</html>
