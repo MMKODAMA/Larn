@@ -12,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.larn.service.UserService;
 
 @Controller
-@SessionAttributes("user")
 public class AuthentificationController {
 	
 	@Autowired
@@ -37,6 +36,13 @@ public class AuthentificationController {
 	public ModelAndView logStudent() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("student/meus_cursos");
+		return mv;
+	}
+	//TESTE DE SESSAO
+	@RequestMapping(value = "/student/teste", method = RequestMethod.GET)
+	public ModelAndView testet() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("student/teste");
 		return mv;
 	}
 	
