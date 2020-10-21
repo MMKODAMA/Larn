@@ -20,7 +20,8 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light static-top">
+  <!-- Navbar-->
+  <nav class="navbar navbar-expand-lg static-top">
     <!-- LOGO -->
     <a class="navbar-brand mr-5" href="#">Larn</a>
     <!--Botão hamburger-->
@@ -34,45 +35,91 @@
       <!--Lista-->
       <ul class="navbar-nav mr-auto">
 
-        <!-- Dropdown -->
-        <li class="nav-item dropdown mr-5">
-          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">Categoria</a>
-          <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-            <!--Itens dropdown - foreach-->
-            <a class="dropdown-item" href="#">Action</a>
-          </div>
+        <li class="nav-item mr-5">
+          <a class="nav-link btn-link" href="pesquisa_aula.html">Procure uma aula</a>
         </li>
-
 
         <li class="nav-item mr-5">
-          <a class="nav-link btn-link" href="pesquisa_aula.html">Encontrar Professor</a>
+          <a class="nav-link btn-link" href="cadastrar_aula.html">Crie sua aula</a>
         </li>
 
-        <li class="nav-item mr-5 mr-5">
-          <a class="nav-link btn-link" href="#">Meus Cursos</a>
+        <li class="nav-item mr-5">
+          <a class="nav-link btn-link" href="meus_cursos.html">Meus Cursos</a>
         </li>
+      </ul>
+
+      <!-- lista direita-->
+      <ul class="navbar-nav">
 
         <!-- Dropdown Compra-->
-        <li class="nav-item dropdown mr-5">
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false"><i class="fas fa-shopping-cart"></i></a>
-          <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
             <!--Itens dropdown - foreach-->
-            <a class="dropdown-item" href="#">Item do Carrinho</a>
+            <a class="dropdown-item" href="carrinho.html">Ir ao carrinho</a>
           </div>
         </li>
 
-        <li class="nav-item mr-5">
-          <a class="nav-link btn-link" href="#"><i class="fas fa-user"></i></a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false"> <i class="fas fa-user"></i> </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="perfil.html"><i class="fas fa-edit"></i> Editar</a>
+            <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Sair</a>
+          </div>
         </li>
-
       </ul>
     </div>
   </nav>
-  <hr>
+  <!-- Fim Navbar-->
 
 
+  <!-- Confirmação de compra-->
+  <section>
+
+    <div class="container pt-5 pb-5">
+
+      <h2>Meus Cursos</h2>
+      <hr>
+
+      <!-- linha -->
+      <div class="row">
+
+
+        <div class="col-lg-3 mb-5">
+          <!-- Card de um curso-->
+          <div class="card meus-cursos">
+
+            <!-- Card image -->
+            <div class="view overlay">
+              <img class="card-img-top rounded-0" src="../images/background-course.png" alt="Card image cap">
+            </div>
+
+            <!-- Card content -->
+            <div class="card-body">
+
+              <div class="collapse-content">
+                <!-- Text -->
+                <h2 class="mbr-fonts-style ft1-bold mbr-section-title3 display-5">Disciplina > <span
+                    class="ft2-bold">Matéria</span></h2>
+                <p>Nome professor</p>
+                <p><a href="#">Link da vídeo aula</a></p>
+              </div>
+
+            </div>
+          </div>
+          <!-- Fim Card -->
+        </div>
+
+
+      </div>
+      <!-- fim linha-->
+
+    </div>
+    <!-- Fim Container-->
+
+  </section>
 
 </body>
 

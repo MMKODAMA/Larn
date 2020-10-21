@@ -11,8 +11,8 @@
 
 .btnSubmit
 {
-    border:none;
-    border-radius:1.5rem;
+    border:none !important;
+    border-radius: 0px !important;
     padding: 1%;
     width: 100%;
     background: #fff;
@@ -21,6 +21,7 @@
     font-weight: bold;
     text-transform: uppercase;
     border: #ce93d8 solid 2px !important;
+
 }
 
 .btnSubmit:hover{

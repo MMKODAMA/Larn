@@ -25,19 +25,35 @@ nav button svg{
 
  .btn-link:hover{
     border: solid 2px #A020F0 !important;
+    padding: 5px !important
 }
 
-.active-purple input[type=text],input[type=password],input[type=email],textarea{
-    border: 2px solid#ce93d8;
-    box-shadow: 0 1px 0 0 #ce93d8;
+.active-purple 
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=number],
+input[type=date],
+input[type=time],
+textarea{
+    border-radius: 0px !important;
+    border: none;
+    border-bottom:  #F0AE37 1px solid;
   }
 
-.active-purple input[type=text]:focus:not([readonly]),
+
+.active-purple 
+input[type=text]:focus:not([readonly]),
 input[type=password]:focus:not([readonly]),
 input[type=email]:focus:not([readonly]),
+input[type=number]:focus:not([readonly]),
+input[type=date]:focus:not([readonly]),
+input[type=time]:focus:not([readonly]),
 textarea:focus:not([readonly]) {
-    border: 2px solid#A020F0;
+    border: none !important;
     box-shadow: 0 1px 0 0 #A020F0;
+    border-radius: 0px !important;
+    transition: 0.3s;
   }
 
 .btn-menu{
@@ -54,5 +70,90 @@ textarea:focus:not([readonly]) {
 .border{
     border-color: #A020F0 !important;
     background: #fffafa;
+    border-radius: 1px !important;
+}
+
+.i-eye {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+}
+
+
+
+
+.wrap {
+    display: flex;
+    background: white;
+    padding: 1rem 1rem 1rem 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 7px 7px 30px -5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.wrap:hover {
+    background: linear-gradient(135deg, #6394ff 0%, #0a193b 100%);
+    color: white;
+}
+
+.ico-wrap {
+    margin: 20px;
+}
+
+.ico-wrap img{
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 50%;
+}
+
+@media(max-width:480px){
+    .card-img{
+        display: none;
+    }
+}
+
+.mbr-iconfont {
+    font-size: 4.5rem !important;   
+    color: #313131;
+    margin: 1rem;
+    padding-right: 1rem;
+}
+
+.vcenter {
+    margin: auto;
+}
+
+.mbr-section-title3 {
+    text-align: left;
+}
+
+.display-5 {
+    font-size: 1.4rem;
+}
+
+.ft1-bold {
+    font-weight: 700;
+}
+
+.ft2-bold {
+    font-weight: 500 !important;
+}
+
+.display-6 {
+    font-size: 1re
+}
+
+.btn-compra{
+    padding: 2%;
+    border-radius: 10px;
+    border-color: #F0AE37;
+}
+
+.btn-compra:hover{
+    border-color: #F0AE37;
+    background-color: #F0AE37;
+    font-weight: 700;
+    color: #0a193b;
 }
 
