@@ -19,7 +19,6 @@ public class AuthentificationController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login() {
-		System.out.println("Login");
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("login");
 		return mv;
@@ -43,6 +42,13 @@ public class AuthentificationController {
 	public ModelAndView testet() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("student/teste");
+		return mv;
+	}
+	
+	@RequestMapping(value = "/teacher/teste", method = RequestMethod.GET)
+	public ModelAndView teste() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("teacher/teste");
 		return mv;
 	}
 	

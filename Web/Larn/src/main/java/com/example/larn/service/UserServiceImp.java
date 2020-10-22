@@ -16,7 +16,7 @@ import com.example.larn.repository.StudentRepository;
 import com.example.larn.repository.TeacherRepository;
 
 @Service
-public class StudentServiceImp implements UserService{
+public class UserServiceImp implements UserService{
 	
 	@Autowired
 	private BCryptPasswordEncoder encoder;
@@ -41,12 +41,47 @@ public class StudentServiceImp implements UserService{
 	
 	@Override
 	public void saveTeacher(Teacher user) {
-		System.out.println("SAVE TEACHER");
 		user.setPassword(encoder.encode(user.getPassword()));
 		user.setStatus("VERIFIED");
 		Role userRole = roleRepo.findByRole("TEACHER_USER");
 		user.setRoles(new HashSet<Role> (Arrays.asList(userRole)));
 		teacherRepo.save(user);
+	}
+
+	@Override
+	public void updateStudent(Student user) {
+		Student student = studentRepo.findById(user.getId()).get();
+		if(user.getPassword().isEmpty()) {
+			user.setPassword(student.getPassword());
+		} else {
+			user.setPassword(encoder.encode(user.getPassword()));
+		}
+		user.setRoles(student.getRoles());
+		user.setStatus("VERIFIED");
+		studentRepo.save(user);
+	}
+
+	@Override
+	public void updateTeacher(Teacher user) {
+		Teacher student = teacherRepo.findById(user.getId()).get();
+		if(user.getPassword().isEmpty()) {
+			user.setPassword(student.getPassword());
+		} else {
+			user.setPassword(encoder.encode(user.getPassword()));
+		}
+		user.setRoles(student.getRoles());
+		user.setStatus("VERIFIED");
+		teacherRepo.save(user);
+	}
+	
+	@Override
+	public Student findStudentByID(int id) {
+		return studentRepo.findById(id).get();
+	}
+
+	@Override
+	public Teacher findTeacherByID(int id) {
+		return teacherRepo.findById(id).get();
 	}
 
 	@Override

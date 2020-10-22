@@ -10,5 +10,13 @@ public interface UserService {
 	
 	public void saveTeacher(Teacher user);
 	
+	public void updateStudent(Student user);
+	
+	public void updateTeacher(Teacher user);
+	
+	public Student findStudentByID(int id);
+	
+	public Teacher findTeacherByID(int id);
+	
 	public boolean isUserAlredyPresent(User user);
 }
