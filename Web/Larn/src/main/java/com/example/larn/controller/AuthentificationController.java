@@ -19,7 +19,6 @@ public class AuthentificationController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login() {
-		System.out.println("Login");
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("login");
 		return mv;
