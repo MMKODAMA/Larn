@@ -45,4 +45,11 @@ public class AuthentificationController {
 		return mv;
 	}
 	
+	@RequestMapping(value = "/teacher/teste", method = RequestMethod.GET)
+	public ModelAndView teste() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("teacher/teste");
+		return mv;
+	}
+	
 }

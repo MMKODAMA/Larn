@@ -50,7 +50,6 @@ public class UserServiceImp implements UserService{
 
 	@Override
 	public void updateStudent(Student user) {
-		System.out.println("CALL SAVE");
 		Student student = studentRepo.findById(user.getId()).get();
 		if(user.getPassword().isEmpty()) {
 			user.setPassword(student.getPassword());
@@ -64,8 +63,15 @@ public class UserServiceImp implements UserService{
 
 	@Override
 	public void updateTeacher(Teacher user) {
-		// TODO Auto-generated method stub
-		
+		Teacher student = teacherRepo.findById(user.getId()).get();
+		if(user.getPassword().isEmpty()) {
+			user.setPassword(student.getPassword());
+		} else {
+			user.setPassword(encoder.encode(user.getPassword()));
+		}
+		user.setRoles(student.getRoles());
+		user.setStatus("VERIFIED");
+		teacherRepo.save(user);
 	}
 	
 	@Override
@@ -75,8 +81,7 @@ public class UserServiceImp implements UserService{
 
 	@Override
 	public Teacher findTeacherByID(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return teacherRepo.findById(id).get();
 	}
 
 	@Override

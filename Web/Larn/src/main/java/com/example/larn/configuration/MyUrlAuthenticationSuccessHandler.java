@@ -138,7 +138,7 @@ public class MyUrlAuthenticationSuccessHandler implements AuthenticationSuccessH
         return redirectStrategy;
     }
     
-    private void setSessionUserAttributes(User user, HttpSession session) {
+    public void setSessionUserAttributes(User user, HttpSession session) {
     	session.setAttribute("id", user.getId());
     	session.setAttribute("role", user.getRoles());
     	session.setAttribute("user", user);
