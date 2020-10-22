@@ -1,49 +1,48 @@
-body{
-    background-color: #F0AE37;
+body {
+    background-color: #F2F2F2;
 }
 
-nav{
-    border-bottom: #A020F0 solid 1px;
-    background-color: #fffafa !important;
+nav {
+    border-bottom: #8898F2 solid 1px;
+    background-color: #F2F2F2 !important;
 }
 
-hr{
-    background-color: #A020F0;
+hr {
+    background-color: #8898F2;
 }
 
-nav button svg{
-    color: #000;
+nav button svg {
+    color: #262626;
 }
 
-.nav-item a{
-    color: #000 !important;
+.nav-item a {
+    color: #262626 !important;
 }
 
-.nav-item a:hover{
-    color:#A020F0 !important;
+.nav-item a:hover {
+    color: #3552F2 !important;
 }
 
- .btn-link:hover{
-    border: solid 2px #A020F0 !important;
-    padding: 5px !important
+.btn-link:hover {
+    border-bottom: solid 2px #3552F2 !important;
+    padding: 3px !important;
+    transition: 0.2s;
 }
 
-.active-purple 
-input[type=text],
+.active-purple input[type=text],
 input[type=password],
 input[type=email],
 input[type=number],
 input[type=date],
 input[type=time],
-textarea{
+textarea {
     border-radius: 0px !important;
     border: none;
-    border-bottom:  #F0AE37 1px solid;
-  }
+    border-bottom: #5068F2 1px solid;
+}
 
 
-.active-purple 
-input[type=text]:focus:not([readonly]),
+.active-purple input[type=text]:focus:not([readonly]),
 input[type=password]:focus:not([readonly]),
 input[type=email]:focus:not([readonly]),
 input[type=number]:focus:not([readonly]),
@@ -51,25 +50,25 @@ input[type=date]:focus:not([readonly]),
 input[type=time]:focus:not([readonly]),
 textarea:focus:not([readonly]) {
     border: none !important;
-    box-shadow: 0 1px 0 0 #A020F0;
+    box-shadow: 0 1px 0 0 #5068F2;
     border-radius: 0px !important;
     transition: 0.3s;
-  }
-
-.btn-menu{
-    border: #ce93d8 solid 2px !important;
 }
 
-.btn-menu:hover{
-    background-color: #B43BFF !important;
-    border: solid 2px #A020F0 !important;
-    color: #fff !important;
+.btn-menu {
+    border: #8898F2 solid 2px !important;
+}
+
+.btn-menu:hover {
+    background-color: #5068F2 !important;
+    border: solid 2px #8898F2 !important;
+    color: #000 !important;
     font-style: bold !important;
 }
 
-.border{
-    border-color: #A020F0 !important;
-    background: #fffafa;
+.border {
+    border-color: #5068F2 !important;
+    background: #F2F2F2;
     border-radius: 1px !important;
 }
 
@@ -79,8 +78,6 @@ textarea:focus:not([readonly]) {
     right: 10px;
     cursor: pointer;
 }
-
-
 
 
 .wrap {
@@ -93,7 +90,7 @@ textarea:focus:not([readonly]) {
 }
 
 .wrap:hover {
-    background: linear-gradient(135deg, #6394ff 0%, #0a193b 100%);
+    background: linear-gradient(135deg, #3552F2 0%, #0A193B 100%);
     color: white;
 }
 
@@ -101,20 +98,20 @@ textarea:focus:not([readonly]) {
     margin: 20px;
 }
 
-.ico-wrap img{
+.ico-wrap img {
     max-width: 100px;
     max-height: 100px;
     border-radius: 50%;
 }
 
-@media(max-width:480px){
-    .card-img{
+@media(max-width:480px) {
+    .card-img {
         display: none;
     }
 }
 
 .mbr-iconfont {
-    font-size: 4.5rem !important;   
+    font-size: 4.5rem !important;
     color: #313131;
     margin: 1rem;
     padding-right: 1rem;
@@ -144,16 +141,15 @@ textarea:focus:not([readonly]) {
     font-size: 1re
 }
 
-.btn-compra{
+.btn-compra {
     padding: 2%;
     border-radius: 10px;
-    border-color: #F0AE37;
+    border-color: #8898F2;
 }
 
-.btn-compra:hover{
-    border-color: #F0AE37;
-    background-color: #F0AE37;
+.btn-compra:hover {
+    border-color: #F2F2F2;
+    background-color: #8898F2;
     font-weight: 700;
-    color: #0a193b;
+    color: #262626;
 }
-
