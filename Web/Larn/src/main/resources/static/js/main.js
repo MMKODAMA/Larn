@@ -1,17 +1,21 @@
 $(document).ready(function () {
 
   $("#owl-demo").owlCarousel({
-
+    items: 1,
+    loop: true,
+    autoplay: false,
+    autoplayTimeout: 6000,
+    autoplayHoverPause: false,
+    smartSpeed: 800,
     navigation: true, // Show next and prev buttons
     slideSpeed: 300,
     paginationSpeed: 400,
     singleItem: true,
-    items: 1,
-    loop: true
 
   });
 
 });
+
 
 
 $("#eye").mousedown(function () {
@@ -22,9 +26,9 @@ $("#eye").mouseup(function () {
   $("#inputPassword").attr("type", "password");
 });
 
-
-////Effects 404 page
 const title = document.querySelector('.error_title')
+
+
 //////// Light //////////
 document.onmousemove = function (e) {
   let x = e.pageX - window.innerWidth / 2;
