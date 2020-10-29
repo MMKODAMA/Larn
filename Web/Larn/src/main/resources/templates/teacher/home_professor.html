@@ -4,23 +4,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-  <!-- Font Awesome-->
-  <link rel="stylesheet" href="../fontawesome-free-5.13.0-web/css/all.min.css">
-  <!-- CSS -->
-  <link rel="stylesheet" href="../css/all.css">
-  <link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">  
+  <title>Larn | Home Professor</title>
+	<!-- Bootstrap -->
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" th:href="@{/webjars/font-awesome/5.13.0-web/css/all.min.css}">
+	<!-- CSS -->
+	<link rel="stylesheet" th:href="@{/css/all.css}">
+	<link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
+ 	<!--Lib Owl Carousel-->
+  	<link rel="stylesheet" th:href="@{/libs/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css}">
+  	<link rel="stylesheet" th:href="@{/libs/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css}">
 
-  <title>Cadastro de Professor</title>
 </head>
 
 
 <body>
 
+  <!-- Navbar-->
+  <div th:replace="fragments/navbar :: navbar-professor"></div>
+  <!-- Fim Navbar-->
 
-  <!-- Section cadastro professor-->
+  <!-- Section home professor-->
   <section class="pt-5">
 
     <!-- Container -->
@@ -74,13 +80,15 @@
   </section>
   <!-- Fim Section-->
 
-  <script src="/jquery/jquery.min.js "></script>
-  <script src="/jquery/jquery.js "></script>
-  <script src="/fontawesome-free-5.13.0-web/js/all.min.js "></script>
-  <script src="/bootstrap/js/bootstrap.bundle.min.js "></script>
-  <script src="/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
-  <script src="/js/main.js"></script>
+	<!-- Footer-->
+	<div th:replace="fragments/footer :: footer-teamplate"></div>
+	<!-- Fim Footer-->
 
+	<script th:src="@{/jquery/jquery.min.js}"></script>
+	<script th:src="@{/jquery/jquery.js}"></script>
+	<script th:src="@{/webjars/font-awesome/5.13.0-web/js/all.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/4.5.2/js/bootstrap.min.js}"></script>
+	<script th:src="@{/libs/OwlCarousel2-2.3.4/dist/owl.carousel.min.js}"></script>
+	<script th:src="@{/js/main.js}"></script>
 </body>
-
 </html>

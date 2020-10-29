@@ -7,15 +7,12 @@
 <meta charset="UTF-8">
 <title>Larn - Cadastro de Professor</title>
 <!-- Bootstrap -->
-<link rel="stylesheet"
-	th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}">
+<link rel="stylesheet" 	th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}">
 <!-- Font Awesome -->
-<link rel="stylesheet"
-	th:href="@{/webjars/font-awesome/5.13.0-web/css/all.min.css}">
+<link rel="stylesheet" th:href="@{/webjars/font-awesome/5.13.0-web/css/all.min.css}">
 <!-- CSS -->
 <link rel="stylesheet" th:href="@{/css/all.css}">
-<link href='https://fonts.googleapis.com/css?family=Rubik'
-	rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
 
 </head>
 
@@ -56,7 +53,7 @@
 								<div class="form-group row">
 									<label class="col-sm-2 col-form-label">CPF: </label>
 									<div class="col-lg-10">
-										<input type="number" th:field="*{cpf}" class="form-control" name="cpf"
+										<input type="text" th:field="*{cpf}" class="form-control" name="cpf"
 											id="inputCPFCli" maxlength="11" placeholder="CPF" required>
 									</div>
 								</div>
@@ -107,17 +104,15 @@
   </section>
   <!-- Fim Section-->
 
-  <!-- Footer -->
-  <div th:replace="fragments/footer :: footer-teamplate"></div>
-  <!-- Fim Footer-->
+	<!-- Footer-->
+	<div th:replace="fragments/footer :: footer-teamplate"></div>
+	<!-- Fim Footer-->
 
-  <script src="/jquery/jquery.min.js "></script>
-  <script src="/jquery/jquery.js "></script>
-  <script src="/fontawesome-free-5.13.0-web/js/all.min.js "></script>
-  <script src="/bootstrap/js/bootstrap.bundle.min.js "></script>
-  <script src="/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
-  <script src="/js/main.js"></script>
-
+	<script th:src="@{/jquery/jquery.min.js}"></script>
+	<script th:src="@{/jquery/jquery.js}"></script>
+	<script th:src="@{/webjars/font-awesome/5.13.0-web/js/all.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/4.5.2/js/bootstrap.min.js}"></script>
+	<script th:src="@{/libs/OwlCarousel2-2.3.4/dist/owl.carousel.min.js}"></script>
+	<script th:src="@{/js/main.js}"></script>
 </body>
-
 </html>

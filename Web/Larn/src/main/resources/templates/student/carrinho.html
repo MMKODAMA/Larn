@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Larn | Confirmação de Compra</title>
+<!-- Bootstrap -->
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}">
+<!-- Font Awesome -->
+<link rel="stylesheet" 	th:href="@{/webjars/font-awesome/5.13.0-web/css/all.min.css}">
+<!-- CSS -->
+<link rel="stylesheet" th:href="@{/css/all.css}">
+<link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
+</head>
+
+<body>
+  <!-- Navbar-->
+  <div th:replace="fragments/navbar :: navbar-aluno"></div>
+  <!-- Fim Navbar-->
+
+    <!-- section carrinho-->
+    <section>
+
+
+    </section>
+    
+
+	<!-- Footer-->
+	<div th:replace="fragments/footer :: footer-teamplate"></div>
+	<!-- Fim Footer-->
+
+	<script th:src="@{/jquery/jquery.min.js}"></script>
+	<script th:src="@{/jquery/jquery.js}"></script>
+	<script th:src="@{/webjars/font-awesome/5.13.0-web/js/all.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/4.5.2/js/bootstrap.min.js}"></script>
+	<script th:src="@{/libs/OwlCarousel2-2.3.4/dist/owl.carousel.min.js}"></script>
+	<script th:src="@{/js/main.js}"></script>
+</body>
+</html>

@@ -26,7 +26,7 @@
   </div>
 
   <div sec:authorize="hasAuthority('TEACHER_USER')">
-    <div th:replace="fragments/navbar :: navbar-aluno"></div>
+    <div th:replace="fragments/navbar :: navbar-professor"></div>
   </div>
   <!-- Fim Navbar-->
 
@@ -165,14 +165,16 @@
     <!-- Fim main-->
 
   </div>
-  <div th:replace="fragments/footer :: footer-teamplate"></div>
+  
+	<!-- Footer-->
+	<div th:replace="fragments/footer :: footer-teamplate"></div>
+	<!-- Fim Footer-->
+
+	<script th:src="@{/jquery/jquery.min.js}"></script>
+	<script th:src="@{/jquery/jquery.js}"></script>
+	<script th:src="@{/webjars/font-awesome/5.13.0-web/js/all.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/4.5.2/js/bootstrap.min.js}"></script>
+	<script th:src="@{/libs/OwlCarousel2-2.3.4/dist/owl.carousel.min.js}"></script>
+	<script th:src="@{/js/main.js}"></script>
 </body>
-
-<script th:src="@{/jquery/jquery.min.js}"></script>
-<script th:src="@{/jquery/jquery.js}"></script>
-<script th:src="@{/webjars/font-awesome/5.13.0-web/js/all.min.js}"></script>
-<script th:src="@{/webjars/bootstrap/4.5.2/js/bootstrap.min.js}"></script>
-<script th:src="@{/libs/OwlCarousel2-2.3.4/dist/owl.carousel.min.js}"></script>
-<script th:src="@{/js/main.js}"></script>
-
 </html>

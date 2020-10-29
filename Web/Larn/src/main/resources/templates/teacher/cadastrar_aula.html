@@ -18,36 +18,12 @@
 
 
 <body>
-    <!-- Navbar-->
-    <nav class="navbar navbar-expand-lg static-top">
-        <!-- LOGO -->
-        <a class="navbar-brand mr-5" href="index.html">Larn</a>
-        <!--Botão hamburger-->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbarCollapse">
+  <!-- Navbar-->
+  <div th:replace="fragments/navbar :: navbar-professor"></div>
+  <!-- Fim Navbar-->
 
-            <!--Lista-->
-            <ul class="navbar-nav mr-auto">
-
-                <li class="nav-item mr-5">
-                    <a class="nav-link btn-link" href="#">Crie sua aula</a>
-                </li>
-
-                <li class="nav-item mr-5">
-                    <a class="nav-link btn-link" href="meus_cursos.html">Meus Cursos</a>
-                </li>
-
-            </ul>
-            <!-- Fim Lista-->
-        </div>
-    </nav>
-    <!-- Fim Navbar-->
-
-    <!-- Section cadastro aluno-->
+    <!-- Section Cadastrar aula-->
     <section class="pt-5">
 
         <div class="container">
@@ -152,12 +128,15 @@
     </section>
     <!-- Fim section-->
 
-    <script src="/jquery/jquery.min.js "></script>
-    <script src="/jquery/jquery.js "></script>
-    <script src="/fontawesome-free-5.13.0-web/js/all.min.js "></script>
-    <script src="/bootstrap/js/bootstrap.bundle.min.js "></script>
-    <script src="/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
-</body>
+	<!-- Footer-->
+	<div th:replace="fragments/footer :: footer-teamplate"></div>
+	<!-- Fim Footer-->
 
+	<script th:src="@{/jquery/jquery.min.js}"></script>
+	<script th:src="@{/jquery/jquery.js}"></script>
+	<script th:src="@{/webjars/font-awesome/5.13.0-web/js/all.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/4.5.2/js/bootstrap.min.js}"></script>
+	<script th:src="@{/libs/OwlCarousel2-2.3.4/dist/owl.carousel.min.js}"></script>
+	<script th:src="@{/js/main.js}"></script>
+</body>
 </html>
