@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome-->
+    <link rel="stylesheet" href="../fontawesome-free-5.13.0-web/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/all.css">
+    <link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
+
+    <title>Criando Aulas</title>
+</head>
+
+
+<body>
+    <!-- Navbar-->
+    <nav class="navbar navbar-expand-lg static-top">
+        <!-- LOGO -->
+        <a class="navbar-brand mr-5" href="index.html">Larn</a>
+        <!--Botão hamburger-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+
+            <!--Lista-->
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item mr-5">
+                    <a class="nav-link btn-link" href="#">Crie sua aula</a>
+                </li>
+
+                <li class="nav-item mr-5">
+                    <a class="nav-link btn-link" href="meus_cursos.html">Meus Cursos</a>
+                </li>
+
+            </ul>
+            <!-- Fim Lista-->
+        </div>
+    </nav>
+    <!-- Fim Navbar-->
+
+    <!-- Section cadastro aluno-->
+    <section class="pt-5">
+
+        <div class="container">
+
+            <div class="active-purple pb-5">
+                <div class="form-content border">
+                    <div class="text-center">
+                        <h1>Sobre a Aula</h1>
+                    </div>
+
+
+
+                    <!-- Form-->
+                    <form action="#" method="POST">
+                        <div class="pt-5">
+
+                            <!-- Matéria -->
+                            <div class="form-group">
+                                <label class="col-sm-2 col-form-label">Matéria: </label>
+                                <div class="col-lg-12">
+                                    <input type="text" class="form-control" name="materia" id="inputMateria"
+                                        maxlength="50" placeholder="Matéria" required>
+                                </div>
+                            </div>
+
+                            <!-- TEMA -->
+                            <div class="form-group">
+                                <label class="col-sm-2 col-form-label">Tema: </label>
+                                <div class="col-lg-12">
+                                    <input type="text" class="form-control" name="tema" id="inputTema" maxlength="50"
+                                        placeholder="Tema" required>
+                                </div>
+                            </div>
+
+                            <!-- Descrição Aula -->
+                            <div class="form-group ">
+                                <label class="col-sm-2 col-form-label">Descrição da Aula: </label>
+                                <div class="col-lg-12">
+                                    <textarea class="form-control" name="sobre" id="exampleFormControlTextarea1"
+                                        rows="4" maxlength="255" required>
+                                        </textarea>
+                                </div>
+                            </div>
+
+
+                            <div class="row pb-5">
+
+                                <!-- PREÇO AULA -->
+                                <div class="form-group col-sm">
+                                    <label class="col-lg-12 col-form-label">Preço da Aula: </label>
+                                    <div class="col-lg-12">
+                                        <input type="number" class="form-control" min="0.01" name="preco"
+                                            id="inputPreco" maxlength="7" step="0.01" placeholder="Preço da Aula"
+                                            required>
+                                    </div>
+                                </div>
+
+                                <!-- HORARIO -->
+                                <div class="form-group col-sm">
+                                    <label class="col-lg-12 col-form-label">Horário: </label>
+                                    <div class="col-lg-12">
+                                        <input type="time" class="form-control" name="time" id="inputTime"
+                                            placeholder="Horário" required>
+                                    </div>
+                                </div>
+
+                                <!-- DATA -->
+                                <div class="form-group col-sm">
+                                    <label class="col-lg-12 col-form-label">Data: </label>
+                                    <div class="col-lg-12">
+                                        <input type="date" class="form-control" name="data" id="inputData"
+                                            placeholder="Data" required>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <button class="btn btn-sm btnSubmit" type="submit">Cadastrar</button>
+                        </div>
+                    </form>
+                    <!--Fim form-->
+
+                </div>
+            </div>
+    </section>
+    <!-- Fim section-->
+
+    <script src="/jquery/jquery.min.js "></script>
+    <script src="/jquery/jquery.js "></script>
+    <script src="/fontawesome-free-5.13.0-web/js/all.min.js "></script>
+    <script src="/bootstrap/js/bootstrap.bundle.min.js "></script>
+    <script src="/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

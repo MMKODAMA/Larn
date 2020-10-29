@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<title>Larn - Meus Cursos</title>
+	<!-- Bootstrap -->
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}">
+	<!-- <link rel="stylesheet" th:href="@{/bootstrap-4/css/bootstrap.min.css}">  EXEMPLO LOCAL-->
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+	<!-- Font Awesome -->
+	<link rel="stylesheet" th:href="@{/webjars/font-awesome/5.13.0-web/css/all.min.css}">
+	<!-- CSS -->
+	<link rel="stylesheet" th:href="@{/css/all.css}">
+	<link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
+ 	<!--Lib Owl Carousel-->
+  	<link rel="stylesheet" th:href="@{/libs/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css}">
+  	<link rel="stylesheet" th:href="@{/libs/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css}">
+	
+</head>
+
+<body>
+  <!-- Navbar-->
+  <div th:replace="fragments/navbar :: navbar-aluno"></div>
+  <!-- Fim Navbar-->
+
+
+  <!-- Confirmação de compra-->
+  <section>
+
+    <div class="container pt-5 pb-5">
+
+      <h2>Meus Cursos</h2>
+      <hr>
+
+      <!-- linha -->
+      <div class="row">
+
+
+        <div class="col-lg-3 mb-5">
+          <!-- Card de um curso-->
+          <div class="card meus-cursos">
+
+            <!-- Card image -->
+            <div class="view overlay">
+              <img class="card-img-top rounded-0" src="/images/background-course.png" alt="Card image cap">
+            </div>
+
+            <!-- Card content -->
+            <div class="card-body">
+
+              <div class="collapse-content">
+                <!-- Text -->
+                <h2 class="mbr-fonts-style ft1-bold mbr-section-title3 display-5">Disciplina > <span
+                    class="ft2-bold">Matéria</span></h2>
+                <p>Nome professor</p>
+                <p><a href="#">Link da vídeo aula</a></p>
+              </div>
+
+            </div>
+          </div>
+          <!-- Fim Card -->
+        </div>
+
+
+      </div>
+      <!-- fim linha-->
+
+    </div>
+    <!-- Fim Container-->
+
+  </section>
+	 <div th:replace="fragments/footer :: footer-teamplate"></div>
+</body>
+
+<script th:src="@{/jquery/jquery.min.js}"></script>
+<script th:src="@{/jquery/jquery.js}"></script>
+<script th:src="@{/webjars/font-awesome/5.13.0-web/js/all.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.5.2/js/bootstrap.min.js}"></script>
+<script th:src="@{/libs/OwlCarousel2-2.3.4/dist/owl.carousel.min.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+
+</html>

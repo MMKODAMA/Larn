@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<title>Larn - Perfil</title>
+	<!-- Bootstrap -->
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" th:href="@{/webjars/font-awesome/5.13.0-web/css/all.min.css}">
+	<!-- CSS -->
+	<link rel="stylesheet" th:href="@{/css/all.css}">
+	<link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
+ 	<!--Lib Owl Carousel-->
+  	<link rel="stylesheet" th:href="@{/libs/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css}">
+  	<link rel="stylesheet" th:href="@{/libs/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css}">
+	
+</head>
+
+<body>
+
+	<div sec:authorize="hasAuthority('STUDENT_USER')" >
+  		<div th:replace="fragments/navbar :: navbar-aluno"></div>
+	</div>
+	
+	<div sec:authorize="hasAuthority('TEACHER_USER')" >
+  		<div th:replace="fragments/navbar :: navbar-aluno"></div>
+	</div>
+  <!-- Fim Navbar-->
+
+
+  <div class="flex-dashboard">
+
+    <!-- SIDEBAR -->
+    <sidebar id="sidebar">
+
+      <div class="sidebar-tittle">
+        <i class="fas fa-user fa-5x"></i>
+      </div>
+
+      <!-- MENU -->
+      <div class="menu">
+
+        <ul>
+
+          <li class="foto-user">
+            <h4>Nome</h4>
+          </li>
+
+          <li>
+            <a href="#"> <i class="fas fa-home "></i> Perfil</a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </sidebar>
+    <!-- Fim sidebar-->
+
+    <!-- MAIN-->
+    <main id="mainContent">
+
+      <!-- HEADER -->
+      <header>
+        <h2><i class="fas fa-users mr-2"></i>Seus Dados</h2>
+      </header>
+
+      <!-- MAIN conteÃºdo -->
+      <div class="main-content">
+
+        <!-- container-->
+        <div class="container">
+
+          <!-- FORM Professor Perfil-->
+          <form th:action="@{''}" th:object="${user}" method="post" action="#" class="active-purple">
+			<input type="hidden"  th:field="*{id}"></input>
+            <!-- NOME COMPLETO -->
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">NOME: </label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputNameUser" name="nome" maxlength="50"
+                  placeholder="Seu Nome" autofocus required th:field="*{name}">
+              </div>
+            </div>
+
+            <!-- EMAIL DE ACESSO -->
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">EMAIL: </label>
+              <div class="col-lg-10">
+                <input type="email" class="form-control" name="email" id="inputEmailUser" maxlength="50"
+                  placeholder="Seu Email" required th:field="*{email}">
+              </div>
+            </div>
+
+            <!-- CPF CLIENTE -->
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">CPF: </label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" name="cpf" id="inputCPFCli" maxlength="11" placeholder="Seu CPF"
+                  required th:field="*{cpf}">
+              </div>
+            </div>
+
+            <!-- Bio -->
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Bio: </label>
+              <div class="col-lg-10">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+              </div>
+            </div>
+			
+			<div sec:authorize="hasAuthority('TEACHER_USER')" >
+            <!-- Lates -->
+	            <div class="form-group row">
+	              <label class="col-sm-2 col-form-label">ID Lates: </label>
+	              <div class="col-lg-10">
+	                <div class="input-group mb-3">
+	                  <div class="input-group-prepend">
+	                    <span class="input-group-text">http://lattes.cnpq.br/</span>
+	                  </div>
+	                  <input type="text" class="form-control" id="basic-url" placeholder="ID de seu Currículo Lattes">
+	                </div>
+	              </div>
+	            </div>
+			</div>
+            <!-- SENHA -->
+            <div class="form-group row pb-5">
+              <label class="col-sm-2 col-form-label">SENHA: </label>
+              <div class="col-lg-10">
+                <div class="row">
+                  <input type="password" class="form-control" name="password" id="inputPassword"
+                    placeholder="Sua Senha" th:field="*{password}">
+                  <span class="i-eye" id="eye"><i class="fas fa-eye"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Botao limpar-->
+            <button class="btn btn-sm btnSubmit" type="reset" value="Reset">Limpar</button>
+            <hr>
+            <!-- Botao Salvar-->
+            <button class="btn btn-sm btnSubmit" type="submit">Salvar</button>
+            
+            <span th:utext="${successMessage}"></span>
+				<div class="alert alert-success alert-dismissible col-sm-12"
+						th:if="${bindingResult != null && bindingResult.getAllErrors() != null}">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+					<ul th:each="data : ${bindingResult.getAllErrors()}">
+						<li th:text="${data.getDefaultMessage()}"></li>
+					</ul>
+				</div>
+          </form>
+          <!-- Fim form-->
+
+        </div>
+        <!-- Fim Container-->
+
+      </div>
+      <!-- Fim main conteÃºdo-->
+    </main>
+    <!-- Fim main-->
+
+  </div>
+	<div th:replace="fragments/footer :: footer-teamplate"></div>
+</body>
+
+<script th:src="@{/jquery/jquery.min.js}"></script>
+<script th:src="@{/jquery/jquery.js}"></script>
+<script th:src="@{/webjars/font-awesome/5.13.0-web/js/all.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.5.2/js/bootstrap.min.js}"></script>
+<script th:src="@{/libs/OwlCarousel2-2.3.4/dist/owl.carousel.min.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+
+</html>
