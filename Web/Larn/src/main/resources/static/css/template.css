@@ -1,72 +1,78 @@
-body {
+body{
     background-color: #F2F2F2;
 }
 
-nav {
+nav{
     border-bottom: #8898F2 solid 1px;
     background-color: #F2F2F2 !important;
 }
 
-hr {
+hr{
     background-color: #8898F2;
 }
 
-nav button svg {
+nav button svg{
     color: #262626;
 }
 
-.nav-item a {
+.nav-item a{
     color: #262626 !important;
 }
 
-.nav-item a:hover {
-    color: #3552F2 !important;
+.nav-item a:hover{
+    color:#3552F2 !important;
 }
 
-.btn-link:hover {
+ .btn-link:hover{
     border-bottom: solid 2px #3552F2 !important;
     padding: 3px !important;
-    transition: 0.2s;
+    transition: 0.2s;    
 }
 
-.active-purple input[type=text],
+.active-purple 
+input[type=text],
 input[type=password],
 input[type=email],
 input[type=number],
 input[type=date],
 input[type=time],
-textarea {
+input[type=url],
+select,
+textarea{
     border-radius: 0px !important;
     border: none;
     border-bottom: #5068F2 1px solid;
-}
+  }
 
 
-.active-purple input[type=text]:focus:not([readonly]),
+.active-purple 
+input[type=text]:focus:not([readonly]),
 input[type=password]:focus:not([readonly]),
 input[type=email]:focus:not([readonly]),
 input[type=number]:focus:not([readonly]),
 input[type=date]:focus:not([readonly]),
 input[type=time]:focus:not([readonly]),
+input[type=url]:focus:not([readonly]),
+select:focus:not([readonlu]),
 textarea:focus:not([readonly]) {
     border: none !important;
     box-shadow: 0 1px 0 0 #5068F2;
     border-radius: 0px !important;
     transition: 0.3s;
-}
+  }
 
-.btn-menu {
+.btn-menu{
     border: #8898F2 solid 2px !important;
 }
 
-.btn-menu:hover {
+.btn-menu:hover{
     background-color: #5068F2 !important;
     border: solid 2px #8898F2 !important;
     color: #000 !important;
     font-style: bold !important;
 }
 
-.border {
+.border{
     border-color: #5068F2 !important;
     background: #F2F2F2;
     border-radius: 1px !important;
@@ -98,20 +104,20 @@ textarea:focus:not([readonly]) {
     margin: 20px;
 }
 
-.ico-wrap img {
+.ico-wrap img{
     max-width: 100px;
     max-height: 100px;
     border-radius: 50%;
 }
 
-@media(max-width:480px) {
-    .card-img {
+@media(max-width:480px){
+    .card-img{
         display: none;
     }
 }
 
 .mbr-iconfont {
-    font-size: 4.5rem !important;
+    font-size: 4.5rem !important;   
     color: #313131;
     margin: 1rem;
     padding-right: 1rem;
@@ -141,15 +147,16 @@ textarea:focus:not([readonly]) {
     font-size: 1re
 }
 
-.btn-compra {
+.btn-compra{
     padding: 2%;
     border-radius: 10px;
     border-color: #8898F2;
 }
 
-.btn-compra:hover {
+.btn-compra:hover{
     border-color: #F2F2F2;
     background-color: #8898F2;
     font-weight: 700;
     color: #262626;
 }
+
