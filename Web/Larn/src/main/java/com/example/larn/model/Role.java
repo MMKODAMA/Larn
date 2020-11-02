@@ -43,5 +43,15 @@ public class Role {
 //		this.desc = desc;
 //	}
 	
+	public Role (int id, String role) {
+		
+		this.id=id;
+		this.role=role;
+		
+	}
+	public Role() {
+		
+	}
+	
 	
 }
