@@ -30,10 +30,7 @@ public abstract class User implements Serializable {
 	@Column(name = "first_name")
 	@NotEmpty(message = "Nome é um campo obrigatorio!")
 	private String name;
-	
-	@Column(name = "last_name")
-	private String lastName;
-	
+		
 	@Column(name = "user_cpf", length = 11)
 	@Size(min = 11, max = 11, message = "CPF invalido")
 	@NotEmpty(message = "CPF é um campo obrigatorio!")
@@ -42,6 +39,12 @@ public abstract class User implements Serializable {
 	@NotEmpty(message = "E-mail é um campo obrigatorio!")
 	@Email(message = "E-mail invalido")
 	private String email;
+	
+	@Column(name = "bio", length = 255)
+	private String bio;
+	
+	@Column(name = "lates", length = 50)
+	private String lates;
 	
 	@NotEmpty(message = "Senha é um campo obrigatorio!")
 	@Length(min = 6, message = "A senha deve ter 6 ou mais caracteres")
@@ -69,20 +72,29 @@ public abstract class User implements Serializable {
 		this.name = name;
 	}
 
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
 	public String getEmail() {
 		return email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+
+	public String getBio() {
+		return bio;
+	}
+
+	public void setBio(String bio) {
+		this.bio = bio;
+	}
+
+	public String getLates() {
+		return lates;
+	}
+
+	public void setLates(String lates) {
+		this.lates = lates;
 	}
 
 	public String getPassword() {

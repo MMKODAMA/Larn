@@ -16,9 +16,6 @@ public class Role {
 	@Column(name = "role_name")
 	private String role;
 	
-//	@Column(name = "info")
-//	private int desc;
-
 	public int getId() {
 		return id;
 	}
@@ -34,14 +31,6 @@ public class Role {
 	public void setRole(String role) {
 		this.role = role;
 	}
-
-//	public int getDesc() {
-//		return desc;
-//	}
-//
-//	public void setDesc(int desc) {
-//		this.desc = desc;
-//	}
 	
 	public Role (int id, String role) {
 		

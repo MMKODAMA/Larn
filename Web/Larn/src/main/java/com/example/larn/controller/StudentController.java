@@ -16,20 +16,13 @@ import com.example.larn.model.User;
 import com.example.larn.service.UserService;
 
 @Controller
-public class TeacherController {
+public class StudentController {
 	
-	@RequestMapping(value = "/teacher/create_class", method = RequestMethod.GET)
+	@RequestMapping(value = "/student/search_class", method = RequestMethod.GET)
 	public ModelAndView createClass() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("teacher/cadastrar_aula");
+		mv.setViewName("student/pesquisa_aula");
 		return mv;
 	}
-	
-	@RequestMapping(value = "/teacher/my_classes", method = RequestMethod.GET)
-	public ModelAndView myClass() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("both/meus_cursos");
-		return mv;
-	}
-	
+
 }

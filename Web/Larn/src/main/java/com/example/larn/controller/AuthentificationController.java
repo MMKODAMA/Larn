@@ -27,16 +27,18 @@ public class AuthentificationController {
 	@RequestMapping(value = "/teacher/home", method = RequestMethod.GET)
 	public ModelAndView logTeacher() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("teacher/meus_cursos");
+		mv.setViewName("teacher/home_professor");
 		return mv;
 	}
-	
+		
 	@RequestMapping(value = "/student/home", method = RequestMethod.GET)
 	public ModelAndView logStudent() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("student/meus_cursos");
+		mv.setViewName("both/meus_cursos");
 		return mv;
 	}
+	
+	
 	//TESTE DE SESSAO
 	@RequestMapping(value = "/student/teste", method = RequestMethod.GET)
 	public ModelAndView testet() {
