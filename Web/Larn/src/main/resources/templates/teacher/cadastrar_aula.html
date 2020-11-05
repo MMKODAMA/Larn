@@ -52,10 +52,9 @@
                                     <div class="col-lg-12">
                                     <select class="form-control" name="cidade" th:field="*{materia}">
     									<option th:value="teste" value="">Selecione a categoria:</option>
-    									<!--  <option th:each="materia : ${categoria}" th:value="${categoria.id}" th:text="${categoria.descricao}"></option>-->
 									</select>                                      
                                     </div>
-                                </div>
+                                </div>                             
 
                                 <!-- TEMA -->
                                 <div class="form-group col-sm">
@@ -102,7 +101,7 @@
                                 <div class="form-group col-sm">
                                     <label class="col-lg-12 col-form-label">Horário: </label>
                                     <div class="col-lg-12">
-                                        <input type="time" class="form-control" name="time" id="inputTime"
+                                        <input th:field="*{hora}" type="text" class="form-control" name="time" id="inputTime"
                                             placeholder="Horário">
                                     </div>
                                 </div>
@@ -111,7 +110,7 @@
                                 <div class="form-group col-sm">
                                     <label class="col-lg-12 col-form-label">Data: </label>
                                     <div class="col-lg-12">
-                                        <input type="date" class="form-control" name="data" id="inputData"
+                                        <input th:field="*{data}" type="text" class="form-control" name="data" id="inputData"
                                             placeholder="Data">
                                     </div>
                                 </div>
