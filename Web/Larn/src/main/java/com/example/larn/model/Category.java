@@ -7,7 +7,4 @@ import javax.persistence.Entity;
 @Entity
 public class Category implements Serializable {
 
-	
-	
-	
 }
