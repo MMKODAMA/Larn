@@ -24,8 +24,15 @@
 
 	<!-- Section cadastro aluno-->
 	<section class="pt-5">
+	
+	<!-- Mensagem de erro -->
+		<div th:if="${successMessage != null}" class="alert alert-success pxy-5" role="alert">
+			<p  th:text="${successMessage}"></p>
+		</div>	
+	<!-- Fim Mensagem de erro -->
+						
 		<div class="container register-form">
-
+		
 
 			<div class="active-purple">
 				<div class="form-content border">
@@ -34,7 +41,7 @@
 					</div>
 
 					<!-- Form-->
-					<form th:action="@{/register/student}" th:object="${user}" method="POST">
+					<form th:action="@{/register/student}" th:object="${user}" action="#" method="POST">
 						<div class="row pt-5">
 
 							<!-- Coluna esquerda-->
@@ -85,18 +92,7 @@
 
 							<button class="btn btn-sm btnSubmit" type="submit">Cadastrar</button>
 						</div>
-						
-						<!-- Mensagem de erro -->
-						<span th:utext="${successMessage}"></span>
-						<div class="alert alert-success alert-dismissible col-sm-12"
-							th:if="${bindingResult != null && bindingResult.getAllErrors() != null}">
-							<button type="button" class="close" data-dismiss="alert"
-								aria-hidden="true">x</button>
-							<ul th:each="data : ${bindingResult.getAllErrors()}">
-								<li th:text="${data.getDefaultMessage()}"></li>
-							</ul>
-						</div>
-						<!-- Fim Mensagem de erro -->
+					
 						
 					</form>
 					<!--Fim form-->

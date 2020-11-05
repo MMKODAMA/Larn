@@ -10,10 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "aula")
-public class Aula implements Serializable{
+public class Aula{
 	
 	@Id
 	@GeneratedValue(strategy =  GenerationType.SEQUENCE)
@@ -37,8 +38,8 @@ public class Aula implements Serializable{
 	private String link;
 	
 	@Column(name = "preco")
-	@NotEmpty(message = "Informe o preço da aula!")
-	private String preco;
+	@NotNull(message = "Informe o preço da aula!")
+	private double preco;
 
 	public int getId() {
 		return id;
@@ -80,11 +81,11 @@ public class Aula implements Serializable{
 		this.link = link;
 	}
 
-	public String getPreco() {
+	public double getPreco() {
 		return preco;
 	}
 
-	public void setPreco(String preco) {
+	public void setPreco(double preco) {
 		this.preco = preco;
 	}
 
