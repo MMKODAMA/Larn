@@ -53,6 +53,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.antMatchers("/webjars/**").permitAll()
 			.antMatchers("/student/**").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "STUDENT_USER")
 			.antMatchers("/teacher/**").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "TEACHER_USER")
+			.antMatchers("/error/**").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "STUDENTY_USER", "TEACHER_USER")
 			.antMatchers("/both/**").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "STUDENTY_USER", "TEACHER_USER")
 			.anyRequest().authenticated()
 			.and()
