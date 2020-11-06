@@ -15,6 +15,6 @@
 	<span th:text="${session.user.class.name}"></span>
 	
 	<div sec:authorize="hasAuthority('STUDENT_USER')" > Has Authority Student </div> 
-	<div sec:authorize="hasAuthority('TEACHER_USER')" > Has Authority TEacher </div> 
+	<div sec:authorize="hasAuthority('TEACHER_USER')" > Has Authority Teacher </div> 
 </body>
 </html>

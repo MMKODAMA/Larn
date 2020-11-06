@@ -46,7 +46,8 @@ public class RegisterController {
 			mv.addObject("successMessage", "Usuario registrado com sucesso");
 		}
 		
-		mv.addObject("user", user);
+		User user2 = new Teacher();
+		mv.addObject("user", user2);
 		mv.setViewName("register/cadastro_professor");
 		
 		return mv;
@@ -77,7 +78,8 @@ public class RegisterController {
 			mv.addObject("successMessage", "Usuario registrado com sucesso");
 		}
 		
-		mv.addObject("user", user);
+		User user2 = new Teacher();
+		mv.addObject("user", user2);
 		mv.setViewName("register/cadastro_aluno");
 		
 		return mv;
