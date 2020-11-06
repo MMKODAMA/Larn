@@ -10,7 +10,9 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import com.example.larn.model.Categoria;
 import com.example.larn.model.Role;
+import com.example.larn.repository.CategoriaRepository;
 import com.example.larn.repository.RoleRepository;
 
 @Component
@@ -18,6 +20,9 @@ public class runAuthQuery implements ApplicationRunner {
 
 	    @Autowired
 	    private RoleRepository repo;
+	    
+	    @Autowired
+	    private CategoriaRepository catRepo;
 
 	    @Override
 	    public void run(ApplicationArguments args) throws Exception {
@@ -39,6 +44,12 @@ public class runAuthQuery implements ApplicationRunner {
 	    	}
 	    	if(!teacher) {
 	    		 repo.save(new Role(2,"TEACHER_USER"));
+	    	}
+	    	
+	    	List<Categoria> categorias;
+	    	categorias = catRepo.findAll();
+	    	if(categorias == null) {
+	    	catRepo.save(new Categoria(1,"Desenvolvimento"));
 	    	}
 	    }
 	}

@@ -11,7 +11,7 @@ import javax.persistence.Table;
 public class Categoria implements Serializable{
 
 	@Id
-	@Column(name = "id")
+	@Column(name = "categoria_id")
 	private int id;
 	
 	@Column(name = "nome")

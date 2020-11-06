@@ -25,7 +25,27 @@ public class TeacherController {
 	
 	@Autowired
 	private AulaService aulaService;
+	
+	@Autowired
+	private CategoriaService categoriaService;
+	
+	@RequestMapping(value = "/teacher/create_class", method = RequestMethod.GET)
+		public String form(Model model) {
+		model.addAttribute("listCategorias", categoriaService.getAllCategoria());
+		return "teacher/cadastrar_aula";
 		
+	}
+	
+	@RequestMapping(value = "/teacher/create_class", method = RequestMethod.POST)
+	public String form(Aula aula, Model model) {
+		
+	aulaService.saveAula(aula);
+	return "redirect:/teacher/create_class";
+	
+	
+}
+	
+		/*
 	@RequestMapping(value = "/teacher/create_class", method = RequestMethod.GET)
 	public ModelAndView createClass() {
 		ModelAndView mv = new ModelAndView();
@@ -55,6 +75,8 @@ public class TeacherController {
 		
 		return mv;
 	}
+	*/
+	
 	
 	@RequestMapping(value = "/teacher/my_classes", method = RequestMethod.GET)
 	public ModelAndView myClass() {

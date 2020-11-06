@@ -40,18 +40,19 @@
                     </div>
 
                     <!-- Form-->
-                    <form action="#" method="POST" th:action="@{/teacher/create_class}" th:object="${aula}">
+                    <form action="#" method="POST">
 
                         <div class="pt-5">
-
+                        <input type="hidden" name="email" th:value="${#authentication.getPrincipal().getUsername()}">
                             <!-- Linha Matéria e Tema-->
                             <div class="row">
                                 <!-- Matéria -->
                                 <div class="form-group col-sm">
                                     <label class="col-lg-12 col-form-label">Matéria: </label>
                                     <div class="col-lg-12">
-                                    <select class="form-control" name="cidade" th:field="*{materia}">
-    									<option th:value="teste" value="">Selecione a categoria:</option>
+                                    <select class="form-control" name="materia">
+    									<option value=""></option>
+    									<option th:each="categoria : ${listCategorias}" th:value="${categoria.categoria}" th:text=${categoria.categoria}></option>
 									</select>                                      
                                     </div>
                                 </div>                             
@@ -60,7 +61,7 @@
                                 <div class="form-group col-sm">
                                     <label class="col-lg-2 col-form-label">Tema: </label>
                                     <div class="col-lg-12">
-                                        <input th:field="*{tema}" type="text" class="form-control" name="tema" id="inputTema"
+                                        <input type="text" class="form-control" name="tema" id="inputTema"
                                             maxlength="50" placeholder="Tema" required>
                                     </div>
                                 </div>
@@ -71,7 +72,7 @@
                             <div class="form-group ">
                                 <label class="col-sm-2 col-form-label">Descrição da Aula: </label>
                                 <div class="col-lg-12">
-                                    <textarea th:field="*{descricao}" class="form-control" name="sobre" id="exampleFormControlTextarea1"
+                                    <textarea class="form-control" name="descricao" id="exampleFormControlTextarea1"
                                         rows="4" maxlength="255" required>
                                         </textarea>
                                 </div>
@@ -81,7 +82,7 @@
                             <div class="form-group">
                                 <label class="col-lg-8 col-form-label">Link da Vídeo Aula: </label>
                                 <div class="col-lg-12">
-                                    <input th:field="*{link}" type="url" class="form-control" name="linkVideo" id="inputLink"
+                                    <input type="url" class="form-control" name="link" id="inputLink"
                                         placeholder="Link da Vídeo Aula" required>
                                 </div>
                             </div>
@@ -92,26 +93,26 @@
                                 <div class="form-group col-sm">
                                     <label class="col-lg-12 col-form-label">Preço da Aula: </label>
                                     <div class="col-lg-12">
-                                        <input th:field="*{preco}" type="number" class="form-control" min="0.01" name="preco"
+                                        <input type="number" class="form-control" min="0.01" name="preco"
                                             id="inputPreco" maxlength="7" step="0.01" placeholder="Preço da Aula"
                                             required>
                                     </div>
                                 </div>
  
                                 <div class="form-group col-sm">
-                                    <label class="col-lg-12 col-form-label">Horário: </label>
+                                    <label class="col-lg-12 col-form-label">Data: </label>
                                     <div class="col-lg-12">
-                                        <input th:field="*{hora}" type="text" class="form-control" name="time" id="inputTime"
+                                        <input  type="date" class="form-control" name="data" id="inputTime"
                                             placeholder="Horário">
                                     </div>
                                 </div>
 
 
                                 <div class="form-group col-sm">
-                                    <label class="col-lg-12 col-form-label">Data: </label>
+                                    <label class="col-lg-12 col-form-label">Hora: </label>
                                     <div class="col-lg-12">
-                                        <input th:field="*{data}" type="text" class="form-control" name="data" id="inputData"
-                                            placeholder="Data">
+                                        <input  type="time" class="form-control" name="hora" id="inputData"
+                                            placeholder="Horário">
                                     </div>
                                 </div>
                             </div>

@@ -4,13 +4,19 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -46,14 +52,22 @@ public class Aula{
 	@NotNull(message = "Informe o preço da aula!")
 	private double preco;
 	
-	@Column(name = "data", columnDefinition = "DATE")
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
-    private LocalDate data;
+	@Column(name = "data")
+    private String data;
  
 	@Column(name = "hora")
-	@DateTimeFormat(pattern = "HH:mm")
-    private LocalDateTime hora;
-
+    private String hora;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "rel_aula_categoria", joinColumns = @JoinColumn(name = "aula_id"), inverseJoinColumns = @JoinColumn(name = "categoria_id"))
+	private Set<Categoria> categorias;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "rel_aula_professor", joinColumns = @JoinColumn(name = "aula_id"), inverseJoinColumns = @JoinColumn(name = "auth_user_id"))
+	private Set<Teacher> teacher;
+	
+	private String email;
+	
 	public int getId() {
 		return id;
 	}
@@ -102,24 +116,44 @@ public class Aula{
 		this.preco = preco;
 	}
 
-	public LocalDate getData() {
+	public String getData() {
 		return data;
 	}
 
-	public void setData(LocalDate data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 
-	public LocalDateTime getHora() {
+	public String getHora() {
 		return hora;
 	}
 
-	public void setHora(LocalDateTime hora) {
+	public void setHora(String hora) {
 		this.hora = hora;
 	}
 
+	public Set<Categoria> getCategorias() {
+		return categorias;
+	}
 
-	
-	
+	public void setCategorias(Set<Categoria> categorias) {
+		this.categorias = categorias;
+	}
 
+	public Set<Teacher> getTeacher() {
+		return teacher;
+	}
+
+	public void setTeacher(Set<Teacher> teacher) {
+		this.teacher = teacher;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
 }
