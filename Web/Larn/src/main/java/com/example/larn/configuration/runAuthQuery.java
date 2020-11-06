@@ -48,7 +48,7 @@ public class runAuthQuery implements ApplicationRunner {
 	    	
 	    	List<Categoria> categorias;
 	    	categorias = catRepo.findAll();
-	    	if(categorias == null) {
+	    	if(categorias.isEmpty()) {
 	    	catRepo.save(new Categoria(1,"Desenvolvimento"));
 	    	}
 	    }

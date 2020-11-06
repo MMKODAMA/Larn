@@ -49,6 +49,7 @@ public class PerfilController {
 		Teacher user = (Teacher)request.getSession().getAttribute("user");
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("user", user);
+		mv.addObject("mensagem", null);
 		mv.setViewName("both/perfil");
 		return mv;
 	}
@@ -57,7 +58,7 @@ public class PerfilController {
 	private ModelAndView studentUpdate(@Valid Teacher user, BindingResult bindingResult, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		userService.updateTeacher(user);
-		mv.addObject("successMessage", "Usuario alterado com sucesso!");
+		mv.addObject("mensagem", "Usuario alterado com sucesso!");
 		mv.addObject("user", user);
 		mv.setViewName("both/perfil");
 		
