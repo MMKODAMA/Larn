@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.larn.model.Aula;
 import com.example.larn.model.Categoria;
@@ -37,12 +38,15 @@ public class TeacherController {
 	}
 	
 	@RequestMapping(value = "/teacher/create_class", method = RequestMethod.POST)
-	public String form(Aula aula, Model model) {
+	public String form(@Valid Aula aula, BindingResult bindingResult, RedirectAttributes attr) {
 		
-	aulaService.saveAula(aula);
+		if(bindingResult.hasErrors()) {
+			attr.addFlashAttribute("mensagem", "Favor corrigir os campos...");
+		}  else {
+			aulaService.saveAula(aula);
+			attr.addFlashAttribute("mensagem", "Aula criada com sucesso!");
+		}
 	return "redirect:/teacher/create_class";
-	
-	
 }
 	
 		/*

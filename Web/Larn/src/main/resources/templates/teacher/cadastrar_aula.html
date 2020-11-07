@@ -25,19 +25,15 @@
     <!-- Section Cadastrar aula-->
     <section class="pt-5">
     
-    	<!-- Mensagem de erro -->
-		<div th:if="${successMessage != null}" class="alert alert-success pxy-5" role="alert">
-			<p  th:text="${successMessage}"></p>
-		</div>	
-	<!-- Fim Mensagem de erro -->
-
         <div class="container">
-
+       
             <div class="active-purple pb-5">
                 <div class="form-content border">
                     <div class="text-center">
                         <h1>Sobre a Aula</h1>
                     </div>
+                    
+                    <div th:replace="fragments/messages :: message"></div>
 
                     <!-- Form-->
                     <form action="#" method="POST">
