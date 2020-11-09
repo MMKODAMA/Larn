@@ -79,24 +79,24 @@
 
       <!-- COnteúdo de Aulas Pesquisadas-->
       <!-- Aulas Pesquisadas-->
-      <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center" th:each="aula : ${listaAulas}">
         <div class="col-lg-8 ">
           <div class="wrap">
-            <div class="ico-wrap">
-              <img class="card-img" src="../images/user.png" alt="">
-              <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5 text-center">Nome Professor</h2>
-            </div>
+          <!--  <div class="ico-wrap">
+               <img class="card-img" src="../images/user.png" alt="">
+              <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5 text-center">Nome Professor</h2> 
+            </div>-->
             <div class="text-wrap vcenter">
-              <h2 class="mbr-fonts-style ft1-bold mbr-section-title3 display-5">Disciplina > <span
-                  class="ft2-bold">Matéria</span></h2>
-              <p class="mbr-fonts-style text1 mbr-text display-6">Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Adipisci nulla repellendus fugiat dicta omnis dolores, facilis placeat accusamus tempore quia
-                esse minus ea incidunt optio eveniet sequi quos nostrum nesciunt.</p>
+              <h2 class="mbr-fonts-style ft1-bold mbr-section-title3 display-5" th:text="${aula.materia}"></h2>
+              <span class="ft2-bold" th:text="${aula.tema}"></span>
+              <p class="mbr-fonts-style text1 mbr-text display-6" th:text="${aula.descricao}"></p>
               <button type="submit" class="btn-compra">Comprar Agora</button>
             </div>
           </div>
         </div>
       </div>
+      
+      
 
     </div>
   </section>
