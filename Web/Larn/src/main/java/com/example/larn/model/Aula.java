@@ -25,11 +25,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "aula")
-public class Aula{
+public class Aula implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
-	@Column(name = "aula_id")
+	@Column(name = "id")
 	private int id;
 	
 	@Column(name = "materia")
@@ -63,7 +63,7 @@ public class Aula{
 	private Set<Categoria> categorias;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "rel_aula_professor", joinColumns = @JoinColumn(name = "aula_id"), inverseJoinColumns = @JoinColumn(name = "auth_user_id"))
+	@JoinTable(name = "rel_aula_professor", joinColumns = @JoinColumn(name = "aula_id"), inverseJoinColumns = @JoinColumn(name = "usuario_id"))
 	private Set<Teacher> teacher;
 	
 	private String email;

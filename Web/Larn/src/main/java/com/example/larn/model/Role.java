@@ -6,14 +6,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "auth_role")
+@Table(name = "cargo")
 public class Role {
 	
 	@Id
-	@Column(name = "auth_role_id")
+	@Column(name = "id")
 	private int id;
 	
-	@Column(name = "role_name")
+	@Column(name = "nome")
 	private String role;
 	
 	public int getId() {
