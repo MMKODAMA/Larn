@@ -4,7 +4,7 @@
 <head>
   	<meta charset="UTF-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  	<title>Descrição da Aula</title>
+  	<title>Larn | Procurando Aula</title>
   	
 	<!-- Bootstrap -->
 	<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}">
@@ -38,10 +38,10 @@
                 <div class="form-group col-sm">
                   <label class="col-lg-12 col-form-label">Matéria: </label>
                   <div class="col-lg-12">
-                    <select class="form-control" name="cidade">
-                      <option value="">Selecione:</option>
-                      <option>Teste</option>
-                    </select>
+                    <select class="form-control" name="materia">
+    					<option value=""></option>
+    					<option th:each="categoria : ${listCategorias}" th:value="${categoria.categoria}" th:text=${categoria.categoria}></option>
+					</select>  
                   </div>
                 </div>
 

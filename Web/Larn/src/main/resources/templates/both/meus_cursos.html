@@ -38,7 +38,7 @@
       <div class="row">
 
 
-        <div class="col-lg-3 mb-5">
+        <div class="col-lg-4 mb-5" th:each="aula : ${aulas}">
           <!-- Card de um curso-->
           <div class="card meus-cursos">
 
@@ -47,15 +47,15 @@
               <img class="card-img-top rounded-0" src="/images/background-course.png" alt="Card image cap">
             </div>
 
+
             <!-- Card content -->
             <div class="card-body">
-
               <div class="collapse-content">
                 <!-- Text -->
-                <h2 class="mbr-fonts-style ft1-bold mbr-section-title3 display-5">Disciplina > <span
-                    class="ft2-bold">Matéria</span></h2>
-                <p>Nome professor</p>
-                <p><a href="#">Link da vídeo aula</a></p>
+                <h2 class="mbr-fonts-style ft1-bold mbr-section-title3 display-5" th:text="${aula.materia}"></h2>
+                <span class="ft2-bold" th:text="${aula.tema}"></span>
+                <p>Descrição: <span class="ft2-bold" th:text="${aula.descricao}"></span></p>
+                <p> Link: <a th:href="${aula.link}" th:text="${aula.link}">Link da vídeo aula</a></p>
               </div>
 
             </div>

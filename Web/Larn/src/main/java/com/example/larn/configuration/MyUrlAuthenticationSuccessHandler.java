@@ -117,7 +117,7 @@ public class MyUrlAuthenticationSuccessHandler implements AuthenticationSuccessH
 		if(teachear) {
 			return "/teacher/home";
 		} else {
-			return "/student/home";
+			return "/student/profile";
 		}
 		
 	}

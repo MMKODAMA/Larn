@@ -30,14 +30,6 @@ public class AuthentificationController {
 		mv.setViewName("teacher/home_professor");
 		return mv;
 	}
-		
-	@RequestMapping(value = "/student/home", method = RequestMethod.GET)
-	public ModelAndView logStudent() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("both/meus_cursos");
-		return mv;
-	}
-	
 	
 	//TESTE DE SESSAO
 	@RequestMapping(value = "/student/teste", method = RequestMethod.GET)

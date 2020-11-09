@@ -35,7 +35,7 @@ public class PerfilController {
 	private ModelAndView studentUpdate(@Valid Student user, BindingResult bindingResult, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		userService.updateStudent(user);
-		mv.addObject("successMessage", "Usuario alterado com sucesso!");
+		mv.addObject("mensagem", "Seus dados foram alterados com sucesso!");
 		mv.addObject("user", user);
 		mv.setViewName("both/perfil");
 		
@@ -58,7 +58,7 @@ public class PerfilController {
 	private ModelAndView studentUpdate(@Valid Teacher user, BindingResult bindingResult, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		userService.updateTeacher(user);
-		mv.addObject("mensagem", "Usuario alterado com sucesso!");
+		mv.addObject("mensagem", "Seus dados foram alterados com sucesso!");
 		mv.addObject("user", user);
 		mv.setViewName("both/perfil");
 		

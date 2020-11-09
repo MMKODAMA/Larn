@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "auth_user")
+@Table(name = "usuario")
 public class Teacher extends User {
 	
 }
