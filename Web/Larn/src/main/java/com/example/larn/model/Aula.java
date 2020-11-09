@@ -66,6 +66,10 @@ public class Aula implements Serializable{
 	@JoinTable(name = "rel_aula_professor", joinColumns = @JoinColumn(name = "aula_id"), inverseJoinColumns = @JoinColumn(name = "usuario_id"))
 	private Set<Teacher> teacher;
 	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "rel_aula_aluno", joinColumns = @JoinColumn(name = "aula_id"), inverseJoinColumns = @JoinColumn(name = "usuario_id"))
+	private Set<Student> student;
+	
 	private String email;
 	
 	public int getId() {
@@ -155,5 +159,13 @@ public class Aula implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
+	public Set<Student> getStudent() {
+		return student;
+	}
+
+	public void setStudent(Set<Student> student) {
+		this.student = student;
+	}
+		
 }

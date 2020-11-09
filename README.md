@@ -37,12 +37,14 @@ As seguintes ferramentas foram utilizadas para a construição desse projeto
 
 ### :floppy_disk: Features
 
-- [ ] Cadastro de Aluno
-- [ ] Cadastro de Professor
-- [ ] Login de Usuários (Aluno e Professor)
-- [ ] Cadastro de Aula
+- [x] Cadastro de Aluno
+- [x] Cadastro de Professor
+- [x] Login de Usuários (Aluno e Professor)
+- [x] Cadastro de Aula
+- [x] Listar Aulas Cadastradas (Professor)
 - [ ] Pesquisa de Aula
 - [ ] Compra de Aula
+- [x] Listar Aulas Compradas (Aluno)
 
 ## :technologist: Integrantes
 
