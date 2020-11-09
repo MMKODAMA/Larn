@@ -61,12 +61,12 @@ public class StudentController {
 		mv.addObject("listaAulas", listaAulas);
 	return mv;
 
-}
+	}
 
 
 	
 	@RequestMapping(value = "/student/home/{id}", method = RequestMethod.GET)
-	public ModelAndView myClass(@PathVariable("id") Integer id, RedirectAttributes reditAttr) {
+	public ModelAndView myClass(@PathVariable("id") Integer id) {
 		
 		ModelAndView mv = new ModelAndView();
 		
@@ -77,6 +77,18 @@ public class StudentController {
 		
 		mv.addObject("aulas", aulas);
 		mv.setViewName("both/meus_cursos");
+		
+		return mv;
+	}
+	
+	@RequestMapping("/comprar/{id}")
+	public ModelAndView detalheAula(@PathVariable("id") Integer id) {
+		
+		ModelAndView mv = new ModelAndView();
+	
+		Optional<Aula> aula = aulaRepo.findById(id);
+		mv.addObject("aula", aula);
+		mv.setViewName("student/carrinho");
 		
 		return mv;
 	}

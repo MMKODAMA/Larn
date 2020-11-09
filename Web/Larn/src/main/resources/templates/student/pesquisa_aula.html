@@ -90,7 +90,7 @@
               <h2 class="mbr-fonts-style ft1-bold mbr-section-title3 display-5" th:text="${aula.materia}"></h2>
               <span class="ft2-bold" th:text="${aula.tema}"></span>
               <p class="mbr-fonts-style text1 mbr-text display-6" th:text="${aula.descricao}"></p>
-              <button type="submit" class="btn-compra">Comprar Agora</button>
+              <a th:href="@{/comprar/{id}(id=${aula.id})}" class="btn btn-primary btn-theme js-scroll-trigger ">Comprar <i class="fas fa-shopping-cart"></i></a>
             </div>
           </div>
         </div>
