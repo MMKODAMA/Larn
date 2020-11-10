@@ -7,5 +7,5 @@ import com.example.larn.model.Categoria;
 public interface CategoriaService {
 
 	public List<Categoria> getAllCategoria();
-	
+
 }

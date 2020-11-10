@@ -6,6 +6,6 @@ import com.example.larn.model.Aula;
 import com.example.larn.model.Categoria;
 
 public interface AulaService {
-	
+
 	public void saveAula(Aula aula);
 }

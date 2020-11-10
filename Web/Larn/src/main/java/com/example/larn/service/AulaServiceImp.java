@@ -15,23 +15,23 @@ import com.example.larn.repository.CategoriaRepository;
 import com.example.larn.repository.TeacherRepository;
 
 @Service
-public class AulaServiceImp implements AulaService{
+public class AulaServiceImp implements AulaService {
 
 	@Autowired
 	private AulaRepository aulaRepo;
-	
+
 	@Autowired
 	private CategoriaRepository catRepo;
-	
+
 	@Autowired
 	private TeacherRepository teacherRepo;;
-	
+
 	@Override
 	public void saveAula(Aula aula) {
 		Categoria c = catRepo.findByCategoria(aula.getMateria());
-		aula.setCategorias(new HashSet<Categoria> (Arrays.asList(c)));
+		aula.setCategorias(new HashSet<Categoria>(Arrays.asList(c)));
 		Teacher t = teacherRepo.findByEmail(aula.getEmail());
-		aula.setTeacher(new HashSet<Teacher> (Arrays.asList(t)));
-		aulaRepo.save(aula);		
+		aula.setTeacher(new HashSet<Teacher>(Arrays.asList(t)));
+		aulaRepo.save(aula);
 	}
 }

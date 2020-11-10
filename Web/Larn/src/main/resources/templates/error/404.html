@@ -1,38 +1,42 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta charset="UTF-8">
-  <title>404 | Ops...</title>
-	<!-- Bootstrap -->
-	<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}">
-	<!-- Font Awesome -->
-	<link rel="stylesheet" th:href="@{/webjars/font-awesome/5.13.0/css/all.min.css}">
-	<!-- CSS -->
-	<link rel="stylesheet" th:href="@{/css/all.css}">
-	<link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
+<meta charset="UTF-8">
+<title>404 | Ops...</title>
+<!-- Bootstrap -->
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}">
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	th:href="@{/webjars/font-awesome/5.13.0/css/all.min.css}">
+<!-- CSS -->
+<link rel="stylesheet" th:href="@{/css/all.css}">
+<link href='https://fonts.googleapis.com/css?family=Rubik'
+	rel='stylesheet'>
 
 </head>
 
 <body>
 
-  <div sec:authorize="hasAuthority('STUDENT_USER')">
-    <div th:replace="fragments/navbar :: navbar-aluno"></div>
-  </div>
+	<div sec:authorize="hasAuthority('STUDENT_USER')">
+		<div th:replace="fragments/navbar :: navbar-aluno"></div>
+	</div>
 
-  <div sec:authorize="hasAuthority('TEACHER_USER')">
-    <div th:replace="fragments/navbar :: navbar-professor"></div>
-  </div>
-  <!-- Fim Navbar-->
+	<div sec:authorize="hasAuthority('TEACHER_USER')">
+		<div th:replace="fragments/navbar :: navbar-professor"></div>
+	</div>
+	<!-- Fim Navbar-->
 
-  <section class="bg404 error_section">
-    <p class="error_section_subtitle">Ops, página não encontrada !</p>
-    <h1 class="error_title">
-      <p>404</p>
-      404
-    </h1>
-  </section>
+	<section class="bg404 error_section">
+		<p class="error_section_subtitle">Ops, página não encontrada !</p>
+		<h1 class="error_title">
+			<p>404</p>
+			404
+		</h1>
+	</section>
 
 	<!-- Footer-->
 	<div th:replace="fragments/footer :: footer-teamplate"></div>

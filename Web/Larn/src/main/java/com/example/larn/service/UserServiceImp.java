@@ -16,42 +16,42 @@ import com.example.larn.repository.StudentRepository;
 import com.example.larn.repository.TeacherRepository;
 
 @Service
-public class UserServiceImp implements UserService{
-	
+public class UserServiceImp implements UserService {
+
 	@Autowired
 	private BCryptPasswordEncoder encoder;
-	
+
 	@Autowired
 	private StudentRepository studentRepo;
-	
+
 	@Autowired
 	private TeacherRepository teacherRepo;
-	
+
 	@Autowired
 	private RoleRepository roleRepo;
-	
+
 	@Override
 	public void saveStudent(Student user) {
 		user.setPassword(encoder.encode(user.getPassword()));
 		user.setStatus("VERIFIED");
 		Role userRole = roleRepo.findByRole("STUDENT_USER");
-		user.setRoles(new HashSet<Role> (Arrays.asList(userRole)));
+		user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
 		studentRepo.save(user);
 	}
-	
+
 	@Override
 	public void saveTeacher(Teacher user) {
 		user.setPassword(encoder.encode(user.getPassword()));
 		user.setStatus("VERIFIED");
 		Role userRole = roleRepo.findByRole("TEACHER_USER");
-		user.setRoles(new HashSet<Role> (Arrays.asList(userRole)));
+		user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
 		teacherRepo.save(user);
 	}
 
 	@Override
 	public void updateStudent(Student user) {
 		Student student = studentRepo.findById(user.getId()).get();
-		if(user.getPassword().isEmpty()) {
+		if (user.getPassword().isEmpty()) {
 			user.setPassword(student.getPassword());
 		} else {
 			user.setPassword(encoder.encode(user.getPassword()));
@@ -64,7 +64,7 @@ public class UserServiceImp implements UserService{
 	@Override
 	public void updateTeacher(Teacher user) {
 		Teacher student = teacherRepo.findById(user.getId()).get();
-		if(user.getPassword().isEmpty()) {
+		if (user.getPassword().isEmpty()) {
 			user.setPassword(student.getPassword());
 		} else {
 			user.setPassword(encoder.encode(user.getPassword()));
@@ -73,7 +73,7 @@ public class UserServiceImp implements UserService{
 		user.setStatus("VERIFIED");
 		teacherRepo.save(user);
 	}
-	
+
 	@Override
 	public Student findStudentByID(int id) {
 		return studentRepo.findById(id).get();
@@ -87,8 +87,15 @@ public class UserServiceImp implements UserService{
 	@Override
 	public boolean isUserAlredyPresent(User user) {
 		User existingUser = studentRepo.findByEmail(user.getEmail());
-		
-		return existingUser != null ? true : false; 
+
+		return existingUser != null ? true : false;
+	}
+
+	@Override
+	public boolean isCpfAlredyPresent(User user) {
+		User existingUser = studentRepo.findByCpf(user.getCpf());
+
+		return existingUser != null ? true : false;
 	}
 
 }

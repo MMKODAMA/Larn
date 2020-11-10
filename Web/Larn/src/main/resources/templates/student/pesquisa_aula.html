@@ -1,105 +1,120 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  	<meta charset="UTF-8">
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  	<title>Larn | Procurando Aula</title>
-  	
-	<!-- Bootstrap -->
-	<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}">
-	<!-- Font Awesome -->
-	<link rel="stylesheet" th:href="@{/webjars/font-awesome/5.13.0/css/all.min.css}" type="text/css">
-	<!-- CSS -->
-	<link rel="stylesheet" th:href="@{/css/all.css}">
-	<link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Larn | Procurando Aula</title>
+
+<!-- Bootstrap -->
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}">
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	th:href="@{/webjars/font-awesome/5.13.0/css/all.min.css}"
+	type="text/css">
+<!-- CSS -->
+<link rel="stylesheet" th:href="@{/css/all.css}">
+<link href='https://fonts.googleapis.com/css?family=Rubik'
+	rel='stylesheet'>
 </head>
 
 <body>
-  <!-- Navbar-->
-	  <div th:replace="fragments/navbar :: navbar-aluno"></div>
-  <!-- Fim Navbar-->
+	<!-- Navbar-->
+	<div th:replace="fragments/navbar :: navbar-aluno"></div>
+	<!-- Fim Navbar-->
 
-  <!-- Section  Pesquisa-->
-  <section class="pt-5">
-    <div class="container">
-      <div class="active-purple pb-5">
-        <div class="form-content border">
+	<!-- Section  Pesquisa-->
+	<section class="pt-5">
+		<div class="container">
+			<div class="active-purple pb-5">
+				<div class="form-content border">
 
-          <div class="text-center">
-            <h2 class="ft1-bold">Procure sua aula</h2>
-          </div>
+					<div class="text-center">
+						<h2 class="ft1-bold">Procure sua aula</h2>
+					</div>
 
-          <!-- Form-->
-          <form action="#" method="POST">
-            <div class="pt-5">
-              <div class="row pb-5">
+					<!-- Form-->
+					<form action="#" method="POST">
+						<div class="pt-5">
+							<div class="row pb-5">
 
-                <div class="form-group col-sm">
-                  <label class="col-lg-12 col-form-label">Matéria: </label>
-                  <div class="col-lg-12">
-                    <select class="form-control" name="materia">
-    					<option value=""></option>
-    					<option th:each="categoria : ${listCategorias}" th:value="${categoria.categoria}" th:text=${categoria.categoria}></option>
-					</select>  
-                  </div>
-                </div>
+								<div class="form-group col-sm">
+									<label class="col-lg-12 col-form-label">Matéria: </label>
+									<div class="col-lg-12">
+										<select class="form-control" name="materia">
+											<option value=""></option>
+											<option th:each="categoria : ${listCategorias}"
+												th:value="${categoria.categoria}"
+												th:text=${categoria.categoria}></option>
+										</select>
+									</div>
+								</div>
 
-                <!-- HORARIO -->
-                <div class="form-group col-sm">
-                  <label class="col-lg-12 col-form-label">De: </label>
-                  <div class="col-lg-12">
-                    <input type="date" class="form-control" name="dataInicio" id="inputDataInicio" required>
-                  </div>
-                </div>
+								<!-- HORARIO -->
+								<div class="form-group col-sm">
+									<label class="col-lg-12 col-form-label">De: </label>
+									<div class="col-lg-12">
+										<input type="date" class="form-control" name="dataInicio"
+											id="inputDataInicio" required>
+									</div>
+								</div>
 
-                <!-- DATA -->
-                <div class="form-group col-sm">
-                  <label class="col-lg-12 col-form-label">Até: </label>
-                  <div class="col-lg-12">
-                    <input type="date" class="form-control" name="dataFim" id="inputDataFim" required>
-                  </div>
-                </div>
+								<!-- DATA -->
+								<div class="form-group col-sm">
+									<label class="col-lg-12 col-form-label">Até: </label>
+									<div class="col-lg-12">
+										<input type="date" class="form-control" name="dataFim"
+											id="inputDataFim" required>
+									</div>
+								</div>
 
-              </div>
+							</div>
 
-              <button class="btn btn-sm btnSubmit" type="submit">Buscar</button>
-            </div>
-          </form>
-          <!--Fim form-->
+							<button class="btn btn-sm btnSubmit" type="submit">Buscar</button>
+						</div>
+					</form>
+					<!--Fim form-->
 
-        </div>
-      </div>
-    </div>
-  </section>
+				</div>
+			</div>
+		</div>
+	</section>
 
-  <!-- Conteudo Pesquisado-->
-  <section>
-    <div class="container">
+	<!-- Conteudo Pesquisado-->
+	<section>
+		<div class="container">
 
-      <!-- COnteúdo de Aulas Pesquisadas-->
-      <!-- Aulas Pesquisadas-->
-      <div class="d-flex justify-content-center" th:each="aula : ${listaAulas}">
-        <div class="col-lg-8 ">
-          <div class="wrap">
-          <!--  <div class="ico-wrap">
+			<!-- COnteúdo de Aulas Pesquisadas-->
+			<!-- Aulas Pesquisadas-->
+			<div class="d-flex justify-content-center"
+				th:each="aula : ${listaAulas}">
+				<div class="col-lg-8 ">
+					<div class="wrap">
+						<!--  <div class="ico-wrap">
                <img class="card-img" src="../images/user.png" alt="">
               <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5 text-center">Nome Professor</h2> 
             </div>-->
-            <div class="text-wrap vcenter">
-              <h2 class="mbr-fonts-style ft1-bold mbr-section-title3 display-5" th:text="${aula.materia}"></h2>
-              <span class="ft2-bold" th:text="${aula.tema}"></span>
-              <p class="mbr-fonts-style text1 mbr-text display-6" th:text="${aula.descricao}"></p>
-              <a th:href="@{/comprar/{id}(id=${aula.id})}" class="btn btn-primary btn-theme js-scroll-trigger ">Comprar <i class="fas fa-shopping-cart"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      
+						<div class="text-wrap vcenter">
+							<h2 class="mbr-fonts-style ft1-bold mbr-section-title3 display-5"
+								th:text="${aula.materia}"></h2>
+							<span class="ft2-bold" th:text="${aula.tema}"></span>
+							<p class="mbr-fonts-style text1 mbr-text display-6"
+								th:text="${aula.descricao}"></p>
+							<a th:href="@{/comprar/{id}(id=${aula.id})}"
+								class="btn btn-primary btn-theme js-scroll-trigger ">Comprar
+								<i class="fas fa-shopping-cart"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
 
-    </div>
-  </section>
+
+
+		</div>
+	</section>
 
 	<!-- Footer-->
 	<div th:replace="fragments/footer :: footer-teamplate"></div>

@@ -2,80 +2,87 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">  
-  <title>Larn | Home Professor</title>
-	<!-- Bootstrap -->
-	<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}">
-	<!-- Font Awesome -->
-	<link rel="stylesheet" th:href="@{/webjars/font-awesome/5.13.0/css/all.min.css}" type="text/css">
-	<!-- CSS -->
-	<link rel="stylesheet" th:href="@{/css/all.css}">
-	<link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Larn | Home Professor</title>
+<!-- Bootstrap -->
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}">
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	th:href="@{/webjars/font-awesome/5.13.0/css/all.min.css}"
+	type="text/css">
+<!-- CSS -->
+<link rel="stylesheet" th:href="@{/css/all.css}">
+<link href='https://fonts.googleapis.com/css?family=Rubik'
+	rel='stylesheet'>
 
 </head>
 
 
 <body>
 
-  <!-- Navbar-->
-  <div th:replace="fragments/navbar :: navbar-professor"></div>
-  <!-- Fim Navbar-->
+	<!-- Navbar-->
+	<div th:replace="fragments/navbar :: navbar-professor"></div>
+	<!-- Fim Navbar-->
 
-  <!-- Section home professor-->
-  <section class="pt-5">
+	<!-- Section home professor-->
+	<section class="pt-5">
 
-    <!-- Container -->
-    <div class="container">
+		<!-- Container -->
+		<div class="container">
 
-        <!-- Linha 1 de cards-->
-        <div class="row">
+			<!-- Linha 1 de cards-->
+			<div class="row">
 
-            <!-- card 1-->
-            <div class="col-lg-4 mb-5">
-                <div class="card ">
-                    <div class="card-body border">
-                        <h5 class="card-tittle text-uppercase">Total de Aulas Vendidas</h5>
-                        <hr>
-                        <p class="card-text py-1">(X) </p>
-                        <p class="card-text py-1 text-uppercase">Aulas Vendidas</p>
-                    </div>
-                </div>
-            </div>
+				<!-- card 1-->
+				<div class="col-lg-4 mb-5">
+					<div class="card ">
+						<div class="card-body border">
+							<h5 class="card-tittle text-uppercase">Total de Aulas
+								Vendidas</h5>
+							<hr>
+							<p class="card-text py-1">(X)</p>
+							<p class="card-text py-1 text-uppercase">Aulas Vendidas</p>
+						</div>
+					</div>
+				</div>
 
-            <!-- card 2-->
-            <div class="col-lg-4 mb-5">
-                <div class="card">
-                    <div class="card-body border">
-                        <h5 class="card-tittle text-uppercase">Ganhos Totais</h5>
-                        <hr>
-                        <p class="card-text py-1">25.350,87 </p>
-                        <p class="card-text py-1 text-uppercase">Reais R$</p>
-                    </div>
-                </div>
-            </div>
+				<!-- card 2-->
+				<div class="col-lg-4 mb-5">
+					<div class="card">
+						<div class="card-body border">
+							<h5 class="card-tittle text-uppercase">Ganhos Totais</h5>
+							<hr>
+							<p class="card-text py-1">25.350,87</p>
+							<p class="card-text py-1 text-uppercase">Reais R$</p>
+						</div>
+					</div>
+				</div>
 
-            <!-- card 3-->
-            <div class="col-lg-4 mb-5">
-                <div class="card">
-                    <div class="card-body border">
-                        <h5 class="card-tittle text-uppercase">Aulas</h5>
-                        <hr>
-                        <p class="card-text py-1">(X)</p>
-                        <p class="card-text py-1 text-uppercase">Total de aulas criadas</p>
-                    </div>
-                </div>
-            </div>
+				<!-- card 3-->
+				<div class="col-lg-4 mb-5">
+					<div class="card">
+						<div class="card-body border">
+							<h5 class="card-tittle text-uppercase">Aulas</h5>
+							<hr>
+							<p class="card-text py-1">(X)</p>
+							<p class="card-text py-1 text-uppercase">Total de aulas
+								criadas</p>
+						</div>
+					</div>
+				</div>
 
-        </div>
-        <!-- Fim linha 1 de cards-->
+			</div>
+			<!-- Fim linha 1 de cards-->
 
-    </div>
-    <!-- Fim Container-->
+		</div>
+		<!-- Fim Container-->
 
-  </section>
-  <!-- Fim Section-->
+	</section>
+	<!-- Fim Section-->
 
 	<!-- Footer-->
 	<div th:replace="fragments/footer :: footer-teamplate"></div>

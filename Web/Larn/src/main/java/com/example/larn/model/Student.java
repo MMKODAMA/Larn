@@ -6,5 +6,5 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "usuario")
 public class Student extends User {
-	
+
 }

@@ -1,76 +1,89 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta charset="UTF-8">
-	<title>Larn - Meus Cursos</title>
-	
-	<!-- Bootstrap -->
-	<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}">
-	<!-- Font Awesome -->
-	<link rel="stylesheet" th:href="@{/webjars/font-awesome/5.13.0/css/all.min.css}" type="text/css">
-	<!-- CSS -->
-	<link rel="stylesheet" th:href="@{/css/all.css}">
-	<link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Larn - Meus Cursos</title>
+
+<!-- Bootstrap -->
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}">
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	th:href="@{/webjars/font-awesome/5.13.0/css/all.min.css}"
+	type="text/css">
+<!-- CSS -->
+<link rel="stylesheet" th:href="@{/css/all.css}">
+<link href='https://fonts.googleapis.com/css?family=Rubik'
+	rel='stylesheet'>
 </head>
 
 <body>
 
 
-  <!-- Navbar-->
-  <div sec:authorize="hasAuthority('STUDENT_USER')">
-    <div th:replace="fragments/navbar :: navbar-aluno"></div>
-  </div>
+	<!-- Navbar-->
+	<div sec:authorize="hasAuthority('STUDENT_USER')">
+		<div th:replace="fragments/navbar :: navbar-aluno"></div>
+	</div>
 
-  <div sec:authorize="hasAuthority('TEACHER_USER')">
-    <div th:replace="fragments/navbar :: navbar-professor"></div>
-  </div>
-  <!-- Fim Navbar-->
+	<div sec:authorize="hasAuthority('TEACHER_USER')">
+		<div th:replace="fragments/navbar :: navbar-professor"></div>
+	</div>
+	<!-- Fim Navbar-->
 
-  <section>
-  
-    <div class="container pt-5 pb-5">
+	<section>
 
-      <h2>Meus Cursos</h2>
-      <hr>
+		<div class="container pt-5 pb-5">
 
-      <!-- linha -->
-      <div class="row">
+			<h2>Meus Cursos</h2>
+			<hr>
 
-
-        <div class="col-lg-4 mb-5" th:each="aula : ${aulas}">
-          <!-- Card de um curso-->
-          <div class="card meus-cursos">
-
-            <!-- Card image -->
-            <div class="view overlay">
-              <img class="card-img-top rounded-0" src="/images/background-course.png" alt="Card image cap">
-            </div>
+			<!-- linha -->
+			<div class="row">
 
 
-            <!-- Card content -->
-            <div class="card-body">
-              <div class="collapse-content">
-                <!-- Text -->
-                <h2 class="mbr-fonts-style ft1-bold mbr-section-title3 display-5" th:text="${aula.materia}"></h2>
-                <span class="ft2-bold" th:text="${aula.tema}"></span>
-                <p>Descrição: <span class="ft2-bold" th:text="${aula.descricao}"></span></p>
-                <p> Link: <a th:href="${aula.link}" th:text="${aula.link}">Link da vídeo aula</a></p>
-              </div>
+				<div class="col-lg-4 mb-5" th:each="aula : ${aulas}">
+					<!-- Card de um curso-->
+					<div class="card meus-cursos">
 
-            </div>
-          </div>
-          <!-- Fim Card -->
-        </div>
+						<!-- Card image -->
+						<div class="view overlay">
+							<img class="card-img-top rounded-0"
+								src="/images/background-course.png" alt="Card image cap">
+						</div>
 
 
-      </div>
-      <!-- fim linha-->
+						<!-- Card content -->
+						<div class="card-body">
+							<div class="collapse-content">
+								<!-- Text -->
+								<h2
+									class="mbr-fonts-style ft1-bold mbr-section-title3 display-5"
+									th:text="${aula.materia}"></h2>
+								<span class="ft2-bold" th:text="${aula.tema}"></span>
+								<p>
+									Descrição: <span class="ft2-bold" th:text="${aula.descricao}"></span>
+								</p>
+								<p>
+									Link: <a th:href="${aula.link}" th:text="${aula.link}">Link
+										da vídeo aula</a>
+								</p>
+							</div>
 
-    </div>
-    <!-- Fim Container-->
+						</div>
+					</div>
+					<!-- Fim Card -->
+				</div>
 
-  </section>
+
+			</div>
+			<!-- fim linha-->
+
+		</div>
+		<!-- Fim Container-->
+
+	</section>
 
 	<!-- Footer-->
 	<div th:replace="fragments/footer :: footer-teamplate"></div>
