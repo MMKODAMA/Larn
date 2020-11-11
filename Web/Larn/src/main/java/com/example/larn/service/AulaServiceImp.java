@@ -9,9 +9,11 @@ import org.springframework.stereotype.Service;
 
 import com.example.larn.model.Aula;
 import com.example.larn.model.Categoria;
+import com.example.larn.model.Student;
 import com.example.larn.model.Teacher;
 import com.example.larn.repository.AulaRepository;
 import com.example.larn.repository.CategoriaRepository;
+import com.example.larn.repository.StudentRepository;
 import com.example.larn.repository.TeacherRepository;
 
 @Service
@@ -24,8 +26,11 @@ public class AulaServiceImp implements AulaService {
 	private CategoriaRepository catRepo;
 
 	@Autowired
-	private TeacherRepository teacherRepo;;
+	private TeacherRepository teacherRepo;
 
+	@Autowired
+	private StudentRepository studentRepo;
+	
 	@Override
 	public void saveAula(Aula aula) {
 		Categoria c = catRepo.findByCategoria(aula.getMateria());
@@ -34,4 +39,15 @@ public class AulaServiceImp implements AulaService {
 		aula.setTeacher(new HashSet<Teacher>(Arrays.asList(t)));
 		aulaRepo.save(aula);
 	}
+
+		
+
+	
+
+	@Override
+	public void saveCompra(Aula aula, Student t) {
+		aula.setStudent(new HashSet<Student>(Arrays.asList(t)));
+		aulaRepo.save(aula);
+	}
+	
 }

@@ -31,26 +31,36 @@
 	<section class="pt-5">
 
 		<div class="container">
+		
+		<div th:replace="fragments/messages :: message"></div>
 
-			<table class="table table-sm table-dark">
-				<thead>
-					<tr>
-						<th scope="col">#</th>
-						<th scope="col">First</th>
-						<th scope="col">Last</th>
-						<th scope="col">Handle</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<th scope="row">1</th>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-					</tr>
-				</tbody>
-			</table>
+			<form method="POST">
 
+				<input type="hidden" name="email"
+					th:value="${#authentication.getPrincipal().getUsername()}">
+
+				<input type="hidden" name="idAula" th:value="${aula.id}">
+				<table class="table table-sm table-dark">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Aula</th>
+							<th scope="col">Preço</th>
+							<th scope="col">Data de Postagem</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th><i class="fas fa-medal"></i></th>
+							<td th:text="${aula.tema}"></td>
+							<td th:text="${aula.preco}"></td>
+							<td th:text="${aula.data}"></td>
+						</tr>
+					</tbody>
+				</table>
+				<button class="btn btn-sm btnSubmit" type="submit">Finalizar
+					Compra</button>
+			</form>
 		</div>
 
 	</section>

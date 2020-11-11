@@ -18,6 +18,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -69,7 +70,8 @@ public class Aula implements Serializable {
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "rel_aula_aluno", joinColumns = @JoinColumn(name = "aula_id"), inverseJoinColumns = @JoinColumn(name = "usuario_id"))
 	private Set<Student> student;
-
+	
+	@Transient
 	private String email;
 
 	public int getId() {
@@ -167,5 +169,7 @@ public class Aula implements Serializable {
 	public void setStudent(Set<Student> student) {
 		this.student = student;
 	}
+	
+	
 
 }

@@ -13,7 +13,8 @@ import com.example.larn.model.Teacher;
 
 @Repository
 public interface AulaRepository extends JpaRepository<Aula, Integer> {
-
+	
+	
 	Iterable<Aula> findByTeacher(Teacher teacher);
 
 	Iterable<Aula> findByStudent(Student student);

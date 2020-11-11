@@ -1,8 +1,9 @@
 package com.example.larn.controller;
 
-import java.util.Optional;
 import java.sql.Date;
 import java.util.List;
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +24,15 @@ import com.example.larn.model.Teacher;
 import com.example.larn.model.User;
 import com.example.larn.repository.AulaRepository;
 import com.example.larn.repository.StudentRepository;
+import com.example.larn.service.AulaService;
 import com.example.larn.service.CategoriaService;
 import com.example.larn.service.UserService;
 
 @Controller
 public class StudentController {
+
+	@Autowired
+	private AulaService aulaService;
 
 	@Autowired
 	private CategoriaService categoriaService;
@@ -60,31 +65,44 @@ public class StudentController {
 	}
 
 	@RequestMapping(value = "/student/home/{id}", method = RequestMethod.GET)
-	public ModelAndView myClass(@PathVariable("id") Integer id) {
-
+	public ModelAndView myClass(@PathVariable("id") Integer id, RedirectAttributes reditAttr) {
+		
 		ModelAndView mv = new ModelAndView();
-
+		
 		Optional<Student> optStudent = studentRepo.findById(id);
-		// if (optTeacher.isPresent()) {}
+		//if (optTeacher.isPresent()) {}
 		Student student = optStudent.get();
 		Iterable<Aula> aulas = aulaRepo.findByStudent(student);
-
+		
 		mv.addObject("aulas", aulas);
 		mv.setViewName("both/meus_cursos");
-
+		
 		return mv;
 	}
 
-	@RequestMapping("/comprar/{id}")
-	public ModelAndView detalheAula(@PathVariable("id") Integer id) {
+	@RequestMapping(value = "/student/carrinho/{id}", method = RequestMethod.GET)
+	public String comprar(@PathVariable("id") Integer id, Model model) {
 
-		ModelAndView mv = new ModelAndView();
+		Optional<Aula> optAula = aulaRepo.findById(id);
+		Aula aula = optAula.get();
+		model.addAttribute("aula", aula);
 
-		Optional<Aula> aula = aulaRepo.findById(id);
-		mv.addObject("aula", aula);
-		mv.setViewName("student/carrinho");
+		return "student/carrinho";
+	}
 
-		return mv;
+	@RequestMapping(value = "/student/carrinho/{id}", method = RequestMethod.POST)
+	public String comprarFinalizar(@RequestParam(value = "idAula") Integer idAula,
+			@RequestParam(value = "email") String email, 
+			RedirectAttributes attr) {
+
+		Student t = studentRepo.findByEmail(email);
+		Optional<Aula> optAula = aulaRepo.findById(idAula);
+		Aula aula = optAula.get();
+		attr.addFlashAttribute("mensagem", "Compra realizada com sucesso!");
+		aulaService.saveCompra(aula, t);
+
+
+		return "redirect:/student/carrinho/{id}";
 	}
 
 }
