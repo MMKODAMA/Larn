@@ -42,8 +42,8 @@ As seguintes ferramentas foram utilizadas para a construição desse projeto
 - [x] Login de Usuários (Aluno e Professor)
 - [x] Cadastro de Aula
 - [x] Listar Aulas Cadastradas (Professor)
-- [ ] Pesquisa de Aula
-- [ ] Compra de Aula
+- [x] Pesquisa de Aula
+- [x] Compra de Aula
 - [x] Listar Aulas Compradas (Aluno)
 
 ## :technologist: Integrantes
