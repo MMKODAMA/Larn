@@ -91,14 +91,10 @@ textarea:focus:not([readonly]) {
     background: white;
     padding: 1rem 1rem 1rem 1rem;
     border-radius: 0.5rem;
-    box-shadow: 7px 7px 30px -5px rgba(0, 0, 0, 0.1);
+    box-shadow: 7px 7px 30px -5px rgba(0, 0, 0, 3);
     margin-bottom: 2rem;
 }
 
-.wrap:hover {
-    background: linear-gradient(135deg, #3552F2 0%, #0A193B 100%);
-    color: white;
-}
 
 .ico-wrap {
     margin: 20px;
@@ -160,3 +156,46 @@ textarea:focus:not([readonly]) {
     color: #262626;
 }
 
+
+.btn,
+.btn:hover {
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary.active,
+.open>.dropdown-toggle.btn-primary {
+    background: #3552F2;
+    border-color: transparent
+}
+
+.btn-theme {
+    background: transparent;
+    border-color: #3552F2;
+    border: 1px solid;
+    color: #3552F2;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 12px 20px;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.btn-theme:hover,
+.btn-theme:active,
+.btn.cbp-filter-item-active {
+    position: relative;
+    border-color: #3552F2;
+    background: #3552F2;
+    color: #ffffff;
+    box-shadow: none !important;
+}

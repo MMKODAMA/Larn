@@ -1,128 +1,141 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">  
-  <title>Larn | Criando Aula</title>
-	<!-- Bootstrap -->
-	<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}">
-	<!-- Font Awesome -->
-	<link rel="stylesheet" th:href="@{/webjars/font-awesome/5.13.0/css/all.min.css}" type="text/css">
-	<!-- CSS -->
-	<link rel="stylesheet" th:href="@{/css/all.css}">
-	<link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Larn | Criando Aula</title>
+<!-- Bootstrap -->
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}">
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	th:href="@{/webjars/font-awesome/5.13.0/css/all.min.css}"
+	type="text/css">
+<!-- CSS -->
+<link rel="stylesheet" th:href="@{/css/all.css}">
+<link href='https://fonts.googleapis.com/css?family=Rubik'
+	rel='stylesheet'>
 
 </head>
 
 <body>
 
-  <!-- Navbar-->
-  <div th:replace="fragments/navbar :: navbar-professor"></div>
-  <!-- Fim Navbar-->
+	<!-- Navbar-->
+	<div th:replace="fragments/navbar :: navbar-professor"></div>
+	<!-- Fim Navbar-->
 
-    <!-- Section Cadastrar aula-->
-    <section class="pt-5">
-    
-        <div class="container">
-       
-            <div class="active-purple pb-5">
-                <div class="form-content border">
-                    <div class="text-center">
-                        <h1>Sobre a Aula</h1>
-                    </div>
-                    
-                    <div th:replace="fragments/messages :: message"></div>
+	<!-- Section Cadastrar aula-->
+	<section class="pt-5">
 
-                    <!-- Form-->
-                    <form action="#" method="POST">
+		<div class="container">
 
-                        <div class="pt-5">
-                        <input type="hidden" name="email" th:value="${#authentication.getPrincipal().getUsername()}">
-                            <!-- Linha Matéria e Tema-->
-                            <div class="row">
-                                <!-- Matéria -->
-                                <div class="form-group col-sm">
-                                    <label class="col-lg-12 col-form-label">Matéria: </label>
-                                    <div class="col-lg-12">
-                                    <select class="form-control" name="materia">
-    									<option value=""></option>
-    									<option th:each="categoria : ${listCategorias}" th:value="${categoria.categoria}" th:text=${categoria.categoria}></option>
-									</select>                                      
-                                    </div>
-                                </div>                             
+			<div class="active-purple pb-5">
+				<div class="form-content border">
+					<div class="text-center">
+						<h1>Sobre a Aula</h1>
+					</div>
 
-                                <!-- TEMA -->
-                                <div class="form-group col-sm">
-                                    <label class="col-lg-2 col-form-label">Tema: </label>
-                                    <div class="col-lg-12">
-                                        <input type="text" class="form-control" name="tema" id="inputTema"
-                                            maxlength="100" placeholder="Tema" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--FIm linha matéria e tema-->
+					<div th:replace="fragments/messages :: message"></div>
 
-                            <!-- Descrição Aula -->
-                            <div class="form-group ">
-                                <label class="col-sm-2 col-form-label">Descrição da Aula: </label>
-                                <div class="col-lg-12">
-                                    <textarea class="form-control" name="descricao" id="exampleFormControlTextarea1"
-                                        rows="4" maxlength="400" required>
+					<!-- Form-->
+					<form action="#" method="POST">
+
+						<div class="pt-5">
+							<input type="hidden" name="email"
+								th:value="${#authentication.getPrincipal().getUsername()}">
+							<!-- Linha Matéria e Tema-->
+							<div class="row">
+								<!-- Matéria -->
+								<div class="form-group col-sm">
+									<label class="col-lg-12 col-form-label">Matéria: </label>
+									<div class="col-lg-12">
+										<select class="form-control" name="materia">
+											<option value=""></option>
+											<option th:each="categoria : ${listCategorias}"
+												th:value="${categoria.categoria}"
+												th:text=${categoria.categoria}></option>
+										</select>
+									</div>
+								</div>
+
+								<!-- TEMA -->
+								<div class="form-group col-sm">
+									<label class="col-lg-2 col-form-label">Tema: </label>
+									<div class="col-lg-12">
+										<input type="text" class="form-control" name="tema"
+											id="inputTema" maxlength="100" placeholder="Tema" required>
+									</div>
+								</div>
+							</div>
+							<!--FIm linha matéria e tema-->
+
+							<!-- Descrição Aula -->
+							<div class="form-group ">
+								<label class="col-sm-2 col-form-label">Descrição da
+									Aula: </label>
+								<div class="col-lg-12">
+									<textarea class="form-control" name="descricao"
+										id="exampleFormControlTextarea1" rows="4" maxlength="400"
+										required>
                                         </textarea>
-                                </div>
-                            </div>
+								</div>
+							</div>
 
-                            <!-- Link Vídeo Aula -->
-                            <div class="form-group">
-                                <label class="col-lg-8 col-form-label">Link da Vídeo Aula: </label>
-                                <div class="col-lg-12">
-                                    <input type="url" class="form-control" name="link" id="inputLink"
-                                        placeholder="Link da Vídeo Aula" required>
-                                </div>
-                            </div>
+							<!-- Link Vídeo Aula -->
+							<div class="form-group">
+								<label class="col-lg-8 col-form-label">Link da Vídeo
+									Aula: </label>
+								<div class="col-lg-12">
+									<input type="url" class="form-control" name="link"
+										id="inputLink" placeholder="Link da Vídeo Aula" required>
+								</div>
+							</div>
 
-                            <div class="row pb-5">
+							<div class="row pb-5">
 
-                                <!-- PREÇO AULA -->
-                                <div class="form-group col-sm">
-                                    <label class="col-lg-12 col-form-label">Preço da Aula: </label>
-                                    <div class="col-lg-12">
-                                        <input type="number" class="form-control" min="0.01" name="preco"
-                                            id="inputPreco" maxlength="7" step="0.01" placeholder="Preço da Aula"
-                                            required>
-                                    </div>
-                                </div>
- 
-                                <div class="form-group col-sm">
-                                    <label class="col-lg-12 col-form-label">Data: </label>
-                                    <div class="col-lg-12">
-                                        <input  type="date" class="form-control" name="data" id="inputTime"
-                                            placeholder="Horário">
-                                    </div>
-                                </div>
+								<!-- PREÇO AULA -->
+								<div class="form-group col-sm">
+									<label class="col-lg-12 col-form-label">Preço da Aula:
+									</label>
+									<div class="col-lg-12">
+										<input type="number" class="form-control" min="0.01"
+											name="preco" id="inputPreco" maxlength="7" step="0.01"
+											placeholder="Preço da Aula" required>
+									</div>
+								</div>
+
+								<div class="form-group col-sm">
+									<label class="col-lg-12 col-form-label">Data: </label>
+									<div class="col-lg-12">
+										<input type="date" class="form-control" name="data"
+											id="inputTime" placeholder="Horário" required>
+									</div>
+								</div>
 
 
-                                <div class="form-group col-sm">
-                                    <label class="col-lg-12 col-form-label">Hora: </label>
-                                    <div class="col-lg-12">
-                                        <input  type="time" class="form-control" name="hora" id="inputData"
-                                            placeholder="Horário">
-                                    </div>
-                                </div>
-                            </div>
+								<div class="form-group col-sm">
+									<label class="col-lg-12 col-form-label">Hora: </label>
+									<div class="col-lg-12">
+										<input type="time" class="form-control" name="hora"
+											id="inputData" placeholder="Horário" required>
+									</div>
+								</div>
+							</div>
 
-                            <button class="btn btn-sm btnSubmit" type="submit">Cadastrar</button>
-                        </div>
-                    </form>
-                    <!--Fim form-->
+							<button class="btn btn-sm btnSubmit" type="submit">Cadastrar</button>
+						</div>
+					</form>
+					<!--Fim form-->
 
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Fim section-->
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Fim section-->
 
 	<!-- Footer-->
 	<div th:replace="fragments/footer :: footer-teamplate"></div>

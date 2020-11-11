@@ -9,14 +9,14 @@ import com.example.larn.model.Categoria;
 import com.example.larn.repository.CategoriaRepository;
 
 @Service
-public class CategoriaServiceImp implements CategoriaService{
+public class CategoriaServiceImp implements CategoriaService {
 
 	@Autowired
 	private CategoriaRepository categoriaRepo;
-	
+
 	@Override
 	public List<Categoria> getAllCategoria() {
-		
+
 		return categoriaRepo.findAll();
 	}
 

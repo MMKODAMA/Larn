@@ -18,6 +18,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -25,53 +26,54 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "aula")
-public class Aula implements Serializable{
-	
+public class Aula implements Serializable {
+
 	@Id
-	@GeneratedValue(strategy =  GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
-	
+
 	@Column(name = "materia")
 	@NotEmpty(message = "Selecione a matéria!")
 	private String materia;
-	
+
 	@Column(name = "tema")
 	@NotEmpty(message = "Tema é um campo obrigatorio!")
 	private String tema;
-	
+
 	@Column(name = "descricao")
 	@NotEmpty(message = "Informe a descrição da aula!")
 	private String descricao;
-	
+
 	@Column(name = "link")
 	@NotEmpty(message = "Informe o link da video aula!")
 	private String link;
-	
+
 	@Column(name = "preco")
 	@NotNull(message = "Informe o preço da aula!")
 	private double preco;
-	
+
 	@Column(name = "data")
-    private String data;
- 
+	private String data;
+
 	@Column(name = "hora")
-    private String hora;
-	
+	private String hora;
+
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "rel_aula_categoria", joinColumns = @JoinColumn(name = "aula_id"), inverseJoinColumns = @JoinColumn(name = "categoria_id"))
 	private Set<Categoria> categorias;
-	
+
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "rel_aula_professor", joinColumns = @JoinColumn(name = "aula_id"), inverseJoinColumns = @JoinColumn(name = "usuario_id"))
 	private Set<Teacher> teacher;
-	
+
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "rel_aula_aluno", joinColumns = @JoinColumn(name = "aula_id"), inverseJoinColumns = @JoinColumn(name = "usuario_id"))
 	private Set<Student> student;
 	
+	@Transient
 	private String email;
-	
+
 	public int getId() {
 		return id;
 	}
@@ -151,7 +153,7 @@ public class Aula implements Serializable{
 	public void setTeacher(Set<Teacher> teacher) {
 		this.teacher = teacher;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
@@ -167,5 +169,7 @@ public class Aula implements Serializable{
 	public void setStudent(Set<Student> student) {
 		this.student = student;
 	}
-		
+	
+	
+
 }

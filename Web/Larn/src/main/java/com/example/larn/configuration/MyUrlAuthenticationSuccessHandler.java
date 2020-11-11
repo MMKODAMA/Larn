@@ -25,42 +25,40 @@ import com.example.larn.model.User;
 import com.example.larn.repository.StudentRepository;
 import com.example.larn.repository.TeacherRepository;
 
-public class MyUrlAuthenticationSuccessHandler implements AuthenticationSuccessHandler{
-	
+public class MyUrlAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
+
 	protected Log logger = LogFactory.getLog(this.getClass());
 
-    private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
-    
-    @Autowired
-    private StudentRepository studentyRep;
-    
-    @Autowired
-    private TeacherRepository teacherRep;
-	
+	private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
+
+	@Autowired
+	private StudentRepository studentyRep;
+
+	@Autowired
+	private TeacherRepository teacherRep;
+
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 			Authentication authentication) throws IOException, ServletException {
-		
+
 		handle(request, response, authentication);
-        clearAuthenticationAttributes(request);	
+		clearAuthenticationAttributes(request);
 	}
-	
-	protected void handle(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
+
+	protected void handle(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
+			throws IOException {
 		String targetUrl = determineTargetUrl(authentication);
-		
+
 		if (response.isCommitted()) {
-            logger.debug(
-              "Response has already been committed. Unable to redirect to "
-              + targetUrl);
-            return;
-        }
-		
+			logger.debug("Response has already been committed. Unable to redirect to " + targetUrl);
+			return;
+		}
+
 		System.out.println("GET NAME: " + SecurityContextHolder.getContext().getAuthentication().getName());
-		
+
 		User user = null;
-		
-		Collection<? extends GrantedAuthority> authorities
-        = authentication.getAuthorities();
+
+		Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 		for (GrantedAuthority grantedAuthority : authorities) {
 			switch (grantedAuthority.getAuthority()) {
 			case "STUDENT_USER":
@@ -73,24 +71,21 @@ public class MyUrlAuthenticationSuccessHandler implements AuthenticationSuccessH
 				user = teacherRep.findByEmail(authentication.getName());
 				break;
 			}
-			if(user != null) {
+			if (user != null) {
 				setSessionUserAttributes(user, request.getSession());
 				;
 			}
 		}
-		
-		
-		
-        redirectStrategy.sendRedirect(request, response, targetUrl);
+
+		redirectStrategy.sendRedirect(request, response, targetUrl);
 	}
-	
+
 	protected String determineTargetUrl(Authentication authentication) {
 		boolean student = false;
 		boolean teachear = false;
 		boolean admin = false;
-		
-		Collection<? extends GrantedAuthority> authorities
-        = authentication.getAuthorities();
+
+		Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 		for (GrantedAuthority grantedAuthority : authorities) {
 			switch (grantedAuthority.getAuthority()) {
 			case "STUDENT_USER":
@@ -108,40 +103,40 @@ public class MyUrlAuthenticationSuccessHandler implements AuthenticationSuccessH
 			default:
 				break;
 			}
-			
+
 		}
-		
-		if(admin) {
+
+		if (admin) {
 			return "/";
 		}
-		if(teachear) {
+		if (teachear) {
 			return "/teacher/home";
 		} else {
 			return "/student/profile";
 		}
-		
-	}
-	
-	protected void clearAuthenticationAttributes(HttpServletRequest request) {
-        HttpSession session = request.getSession(false);
-        if (session == null) {
-            return;
-        }
-        session.removeAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
-    }
 
-    public void setRedirectStrategy(RedirectStrategy redirectStrategy) {
-        this.redirectStrategy = redirectStrategy;
-    }
-    
-    protected RedirectStrategy getRedirectStrategy() {
-        return redirectStrategy;
-    }
-    
-    private void setSessionUserAttributes(User user, HttpSession session) {
-    	session.setAttribute("id", user.getId());
-    	session.setAttribute("role", user.getRoles());
-    	session.setAttribute("user", user);
-    }
-     
+	}
+
+	protected void clearAuthenticationAttributes(HttpServletRequest request) {
+		HttpSession session = request.getSession(false);
+		if (session == null) {
+			return;
+		}
+		session.removeAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
+	}
+
+	public void setRedirectStrategy(RedirectStrategy redirectStrategy) {
+		this.redirectStrategy = redirectStrategy;
+	}
+
+	protected RedirectStrategy getRedirectStrategy() {
+		return redirectStrategy;
+	}
+
+	private void setSessionUserAttributes(User user, HttpSession session) {
+		session.setAttribute("id", user.getId());
+		session.setAttribute("role", user.getRoles());
+		session.setAttribute("user", user);
+	}
+
 }

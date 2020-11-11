@@ -7,7 +7,7 @@ import com.example.larn.model.Categoria;
 
 @Repository
 public interface CategoriaRepository extends JpaRepository<Categoria, Integer> {
-	
+
 	public Categoria findByCategoria(String Categoria);
 
 }

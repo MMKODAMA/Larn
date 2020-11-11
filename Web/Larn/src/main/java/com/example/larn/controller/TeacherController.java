@@ -24,58 +24,55 @@ import com.example.larn.model.Categoria;
 import com.example.larn.service.AulaService;
 import com.example.larn.service.CategoriaService;
 
-
 @Controller
 public class TeacherController {
-	
+
 	@Autowired
 	private AulaService aulaService;
-	
+
 	@Autowired
 	private CategoriaService categoriaService;
-	
+
 	@Autowired
 	private AulaRepository aulaRepo;
-	
+
 	@Autowired
 	private TeacherRepository teacherRepo;
-	
+
 	@RequestMapping(value = "/teacher/create_class", method = RequestMethod.GET)
-		public String form(Model model) {
+	public String form(Model model) {
 		model.addAttribute("listCategorias", categoriaService.getAllCategoria());
 		return "teacher/cadastrar_aula";
-		
+
 	}
-	
+
 	@RequestMapping(value = "/teacher/create_class", method = RequestMethod.POST)
 	public String form(@Valid Aula aula, BindingResult bindingResult, RedirectAttributes attr) {
-		
-		if(bindingResult.hasErrors()) {
+
+		if (bindingResult.hasErrors()) {
 			attr.addFlashAttribute("mensagem", "Favor corrigir os campos...");
-		}  else {
+		} else {
 			aulaService.saveAula(aula);
 			attr.addFlashAttribute("mensagem", "Aula criada com sucesso!");
 		}
 		return "redirect:/teacher/create_class";
 	}
 
-	
-	
 	@RequestMapping(value = "/teacher/my_classes/{id}", method = RequestMethod.GET)
 	public ModelAndView myClass(@PathVariable("id") Integer id, RedirectAttributes reditAttr) {
-		
+
 		ModelAndView mv = new ModelAndView();
-		
+
 		Optional<Teacher> optTeacher = teacherRepo.findById(id);
-		//if (optTeacher.isPresent()) {}
+		// if (optTeacher.isPresent()) {}
 		Teacher teacher = optTeacher.get();
 		Iterable<Aula> aulas = aulaRepo.findByTeacher(teacher);
-		
+
 		mv.addObject("teacher", teacher);
 		mv.addObject("aulas", aulas);
 		mv.setViewName("both/meus_cursos");
-		
+
 		return mv;
 	}
-	
+
 }

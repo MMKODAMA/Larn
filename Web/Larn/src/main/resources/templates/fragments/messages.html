@@ -1,7 +1,8 @@
 <div th:fragment="message">
-    <!-- Mensagem de erro -->
-		<div th:if="${not #strings.isEmpty(mensagem)}" class="alert alert-success pxy-5 " role="alert">
-			<span th:text=${mensagem}></span>
-		</div>	
+	<!-- Mensagem de erro -->
+	<div th:if="${not #strings.isEmpty(mensagem)}"
+		class="alert alert-success pxy-5 " role="alert">
+		<span th:text=${mensagem}></span>
+	</div>
 	<!-- Fim Mensagem de erro -->
 </div>

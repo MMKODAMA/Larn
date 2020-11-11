@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,26 +8,63 @@
 <title>Larn | Confirmação de Compra</title>
 
 <!-- Bootstrap -->
-	<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}">
-	<!-- Font Awesome -->
-	<link rel="stylesheet" th:href="@{/webjars/font-awesome/5.13.0/css/all.min.css}" type="text/css">
-	<!-- CSS -->
-	<link rel="stylesheet" th:href="@{/css/all.css}">
-	<link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
-	
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/4.5.3/css/bootstrap.min.css}">
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	th:href="@{/webjars/font-awesome/5.13.0/css/all.min.css}"
+	type="text/css">
+<!-- CSS -->
+<link rel="stylesheet" th:href="@{/css/all.css}">
+<link href='https://fonts.googleapis.com/css?family=Rubik'
+	rel='stylesheet'>
+
 </head>
 
 <body>
-  <!-- Navbar-->
-  <div th:replace="fragments/navbar :: navbar-aluno"></div>
-  <!-- Fim Navbar-->
+	<!-- Navbar-->
+	<div th:replace="fragments/navbar :: navbar-aluno"></div>
+	<!-- Fim Navbar-->
 
-    <!-- section carrinho-->
-    <section>
+	<!-- section carrinho-->
+	<!-- Section Cadastrar aula-->
+	<section class="pt-5">
 
+		<div class="container">
+		
+		<div th:replace="fragments/messages :: message"></div>
 
-    </section>
-    
+			<form method="POST">
+
+				<input type="hidden" name="email"
+					th:value="${#authentication.getPrincipal().getUsername()}">
+
+				<input type="hidden" name="idAula" th:value="${aula.id}">
+				<table class="table table-sm table-dark">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Aula</th>
+							<th scope="col">Preço</th>
+							<th scope="col">Data de Postagem</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th><i class="fas fa-medal"></i></th>
+							<td th:text="${aula.tema}"></td>
+							<td th:text="${aula.preco}"></td>
+							<td th:text="${aula.data}"></td>
+						</tr>
+					</tbody>
+				</table>
+				<button class="btn btn-sm btnSubmit" type="submit">Finalizar
+					Compra</button>
+			</form>
+		</div>
+
+	</section>
+
 
 	<!-- Footer-->
 	<div th:replace="fragments/footer :: footer-teamplate"></div>

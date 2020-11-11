@@ -7,18 +7,16 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-public class WebConfiguration implements WebMvcConfigurer{
-	
+public class WebConfiguration implements WebMvcConfigurer {
+
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
 		BCryptPasswordEncoder bCryptEncoder = new BCryptPasswordEncoder();
 		return bCryptEncoder;
 	}
-	
+
 	@Override
-	   public void addResourceHandlers(ResourceHandlerRegistry registry) {
-	      registry
-              .addResourceHandler("/webjars/**")
-              .addResourceLocations("/webjars/");
-	   }
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/webjars/**").addResourceLocations("/webjars/");
+	}
 }

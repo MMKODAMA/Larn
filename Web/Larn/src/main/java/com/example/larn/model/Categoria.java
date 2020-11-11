@@ -8,12 +8,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Categoria")
-public class Categoria implements Serializable{
+public class Categoria implements Serializable {
 
 	@Id
 	@Column(name = "id")
 	private int id;
-	
+
 	@Column(name = "nome")
 	private String categoria;
 
@@ -32,16 +32,14 @@ public class Categoria implements Serializable{
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
-	
-	public Categoria (int id, String categoria) {
-		this.id=id;
-		this.categoria=categoria;
+
+	public Categoria(int id, String categoria) {
+		this.id = id;
+		this.categoria = categoria;
 	}
-	
+
 	public Categoria() {
-		
+
 	}
-	
-	
-	
+
 }
