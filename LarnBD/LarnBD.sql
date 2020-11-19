@@ -70,8 +70,6 @@ insert into Categoria (nome) values ('Desenvolvimento'),
 ('Desenvolvimento Pessoal'), ('Educacao Financeira'), ('Design'),('Marketing'),('Fotografia e Video'),
 ('Musica'),('Ensino e Estudo Academico');
 
-
-
 create table venda(
 id_venda int not null unique auto_increment,
 id_aluno int not null,

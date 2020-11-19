@@ -32,7 +32,7 @@ As seguintes ferramentas foram utilizadas para a construição desse projeto
 ## :triangular_flag_on_post: Status
 
 <p>
-	🚧 Em construção...  🚧
+:checkered_flag: Finalizado :checkered_flag:
 </p>
 
 ### :floppy_disk: Features
@@ -40,10 +40,11 @@ As seguintes ferramentas foram utilizadas para a construição desse projeto
 - [x] Cadastro de Aluno
 - [x] Cadastro de Professor
 - [x] Login de Usuários (Aluno e Professor)
-- [x] Cadastro de Aula
+- [x] Editar Perfil (Aluno e Professor)
+- [x] Cadastro de Aula (Professor)
 - [x] Listar Aulas Cadastradas (Professor)
-- [x] Pesquisa de Aula
-- [x] Compra de Aula
+- [x] Pesquisa de Aula (Aluno)
+- [x] Compra de Aula (Aluno)
 - [x] Listar Aulas Compradas (Aluno)
 
 ## :technologist: Integrantes
