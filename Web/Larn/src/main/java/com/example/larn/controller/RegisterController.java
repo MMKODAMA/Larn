@@ -36,13 +36,23 @@ public class RegisterController {
 	public ModelAndView registerTeacher(@Valid Teacher user, BindingResult bindingResult, ModelMap map) {
 		ModelAndView mv = new ModelAndView();
 
-		if (bindingResult.hasErrors()) {
-			mv.addObject("successMessage", "Favor corrigir os campos");
-			map.addAttribute("bindingResult", bindingResult);
-		} else if (userService.isUserAlredyPresent(user)) {
-			mv.addObject("successMessage", "Usuario já registrado");
+		if (userService.isUserAlredyPresent(user)) {
+			
+			mv.addObject("warn", "Usuario já registrado");
+			
 		} else if (userService.isCpfAlredyPresent(user)) {
-			mv.addObject("successMessage", "CPF já registrado");
+			
+			mv.addObject("warn", "CPF já registrado");
+			
+		} else if (bindingResult.hasErrors()) {
+			
+			mv.addObject("failed", "Favor corrigir os campos");
+			
+			if (user.getPassword().length() < 6) {
+				mv.addObject("senha", "A senha deve ter entre 6 a 10 caracteres");
+			}
+			
+			map.addAttribute("bindingResult", bindingResult);
 		} else {
 			userService.saveTeacher(user);
 			mv.addObject("successMessage", "Você se cadastrou com sucesso");
@@ -69,14 +79,24 @@ public class RegisterController {
 	@RequestMapping(value = "/register/student", method = RequestMethod.POST)
 	public ModelAndView registerStudent(@Valid Student user, BindingResult bindingResult, ModelMap map) {
 		ModelAndView mv = new ModelAndView();
-
-		if (bindingResult.hasErrors()) {
-			mv.addObject("successMessage", "Favor corrigir os campos");
-			map.addAttribute("bindingResult", bindingResult);
-		} else if (userService.isUserAlredyPresent(user)) {
-			mv.addObject("successMessage", "Usuario ja registrado");
+		
+		if (userService.isUserAlredyPresent(user)) {
+			
+			mv.addObject("warn", "Usuario já registrado");
+			
 		} else if (userService.isCpfAlredyPresent(user)) {
-			mv.addObject("successMessage", "CPF já registrado");
+			
+			mv.addObject("warn", "CPF já registrado");
+			
+		} else if (bindingResult.hasErrors()) {
+			
+			mv.addObject("failed", "Favor corrigir os campos");
+			
+			if (user.getPassword().length() < 6) {
+				mv.addObject("senha", "A senha deve ter entre 6 a 10 caracteres");
+			}
+			
+			map.addAttribute("bindingResult", bindingResult);
 		} else {
 			userService.saveStudent(user);
 			mv.addObject("successMessage", "Você se cadastrou com sucesso");

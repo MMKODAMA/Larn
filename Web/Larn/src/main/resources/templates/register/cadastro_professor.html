@@ -35,12 +35,27 @@
 			<div class="active-purple">
 				<div class="form-content border">
 
-					<!-- Mensagem de erro -->
+					<!-- Mensagem de sucesso -->
 					<div th:if="${successMessage != null}"
 						class="alert alert-success pxy-5" role="alert">
 						<p th:text="${successMessage}"></p>
 					</div>
-					<!-- Fim Mensagem de erro -->
+					<!-- Fim Mensagem de sucesso -->
+					
+					<!-- Mensagem de failed -->
+					<div th:if="${failed != null}"
+						class="alert alert-danger pxy-5" role="alert">
+						<h3 th:text="${failed}"></h3>
+						<p th:text="${senha}"></p>
+					</div>
+					<!-- Fim Mensagem de failed -->
+					
+					<!-- Mensagem de aviso -->
+					<div th:if="${warn != null}"
+						class="alert alert-warning pxy-5" role="alert">
+						<h3 th:text="${warn}"></h3>
+					</div>
+					<!-- Fim Mensagem de aviso -->
 
 					<div class="text-center">
 						<h1>Cadastre-se e comece a ensinar</h1>
